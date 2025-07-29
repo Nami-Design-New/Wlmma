@@ -1,5 +1,3 @@
-
-
 export default function How() {
   const steps = [
     {
@@ -26,10 +24,8 @@ export default function How() {
     <section className="py-5 how_section">
       <div className="container">
         <div className="d-flex flex-column gap-2">
-          <h1 className="h6 text-center text-yellow-color fw-bold">
-            How It Works
-          </h1>
-          <h2 className="display-5 text-center fw-bold">Work</h2>
+          <h1 className="h6 text-center text-yellow-color fw-bold">Work</h1>
+          <h2 className="display-5 text-center fw-bold">How It Works</h2>
           <p className="text-center lead how-desc">
             Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
             elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.{" "}

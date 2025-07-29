@@ -374,7 +374,7 @@ body .hero_section .hero-content {
   -ms-transform: translateY(-50px);
   -o-transform: translateY(-50px);
 }
-@media (min-width: 768px) and (max-width: 1145px) {
+@media screen and (max-width: 767px) {
   body .hero_section .hero-content {
     top: 27%;
   }
@@ -409,8 +409,18 @@ body .hero_section .hero-content .hero-desc {
     width: 89%;
   }
 }
+@media screen and (max-width: 767px) {
+  body .hero_section .hero-content .hero-desc {
+    width: 100%;
+  }
+}
 body .about_section {
   position: relative;
+}
+@media screen and (max-width: 767px) {
+  body .about_section .about-shape {
+    display: none;
+  }
 }
 body .about-shape {
   position: absolute;
@@ -439,6 +449,11 @@ body .how_section .how-shape {
   right: 0;
   height: 580px;
   z-index: -11;
+}
+@media screen and (max-width: 767px) {
+  body .how_section .how-shape {
+    display: none;
+  }
 }
 @media (max-width: 1200px) {
   body .how_section .how-shape {
