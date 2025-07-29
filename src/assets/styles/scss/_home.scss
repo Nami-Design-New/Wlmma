@@ -1,0 +1,160 @@
+#home {
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  @media (min-width: 568px) and (max-width: 992px) {
+    height: 75vh;
+  }
+
+  .hero-img {
+    width: 600px;
+    @media (max-width: 567px) {
+      width: 270px;
+    }
+    @media (min-width: 568px) and (max-width: 768px) {
+      width: 300px;
+    }
+    @media (min-width: 768px) and (max-width: 1145px) {
+      width: 550px;
+    }
+  }
+
+  .hero-shape {
+    position: absolute;
+    right: 0;
+    width: 850px;
+    @media (max-width: 567px) {
+      width: 270px;
+    }
+    @media (min-width: 568px) and (max-width: 768px) {
+      width: 300px;
+    }
+    @media (min-width: 768px) and (max-width: 1145px) {
+      width: 443px;
+    }
+  }
+  .hero-content {
+    // padding-top: 120px;
+    top: 38%;
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
+    @media (min-width: 768px) and (max-width: 1145px) {
+      top: 27%;
+    }
+    .hero-header {
+      @media (min-width: 768px) and (max-width: 1145px) {
+        font-size: 32px;
+        top: 38%;
+      }
+    }
+    .hero-content-text {
+      width: 75%;
+      @media (max-width: 767px) {
+        width: 100%;
+      }
+      @media (min-width: 768px) and (max-width: 1145px) {
+        width: 100%;
+      }
+    }
+    .hero-desc {
+      font-size: 17px;
+      width: 75%;
+      text-wrap-style: pretty;
+      color: #828282;
+      @media (min-width: 768px) and (max-width: 1145px) {
+        width: 89%;
+      }
+    }
+  }
+}
+
+#about {
+  position: relative;
+}
+
+#how {
+  position: relative;
+  .how-shape {
+    position: absolute;
+    top: 10%;
+    right: 0;
+    height: 580px;
+    z-index: -11;
+    @media (max-width: 1200px) {
+      right: -105px;
+    }
+  }
+  .how-desc {
+    width: 31%;
+    text-wrap-style: stable;
+    margin-inline: auto;
+    color: #0d0d0d80;
+    font-weight: 600;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  .how-card-item {
+    width: 300px;
+    padding: 20px;
+    @media (min-width: 768px) and (max-width: 1200px) {
+      width: 31%;
+    }
+  }
+}
+
+#experience {
+  .experience-img {
+    width: 230px;
+  }
+  .experience-header {
+    @media (max-width: 567px) {
+      font-size: 28px;
+    }
+  }
+}
+
+#testimonial {
+  .test-desc {
+    width: 31%;
+    text-wrap-style: stable;
+    margin-inline: auto;
+    color: #0d0d0d80;
+    font-weight: 600;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+  .slick-list {
+    overflow-x: hidden;
+  }
+  .slick-arrow{
+    display: none !important;
+  }
+}
+
+#download {
+  .download-desc {
+    color: #009090;
+    width: 50%;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+     @media (min-width:768px) and (max-width: 992px) {
+      width: 70%;
+    }
+  }
+  .download-img {
+    width: 500px;
+  }
+  .download-app-img{
+    width:400px;
+    @media (max-width: 768px) {
+    width: auto;
+    }
+  }
+}
