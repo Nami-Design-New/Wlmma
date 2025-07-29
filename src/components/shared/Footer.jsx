@@ -18,7 +18,7 @@ export function Footer() {
   const renderFooterLinks = () =>
     footerItems.map((item, index) => (
       <li className="nav-item mx-2" key={index}>
-        <a className="nav-link text-white" href={item.href}>
+        <a className="nav-link text-white" href= {item.href}>
           {item.name}
         </a>
       </li>

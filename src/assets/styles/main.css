@@ -450,7 +450,6 @@ footer {
   overflow: hidden;
 }
 footer .footer-shape {
-  z-index: -11;
   right: 0;
   width: 700px;
 }
