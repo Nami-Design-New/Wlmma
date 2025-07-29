@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 
 @mixin centerFlex {
   display: flex;
@@ -39,17 +37,13 @@
   }
 }
 
-$main: #a80200;
-$second: #d8250f;
-$black: #000;
-$white: #fff;
-$gray: #777;
-$warning: #f7b500;
-$input_bg: #fafafa;
-$input_hint: #aaaaaa;
-$input_stroke: #f4f4f4;
-$transition: all 0.3s ease-in-out;
-$shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
+:root {
+  --main-color: #f05b4e;
+  --main-color-50: #ff5b4b0a;
+  --second-color: #0d9595;
+  --yellow-color: #faae43;
+  --dark-color: #373737;
+}
 
 * {
   margin: 0;
@@ -65,11 +59,11 @@ $shadow: 0 0 16px 0 rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-track {
-  background-color: $white;
+  background-color: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $input_hint;
+  background: #e0e0e0;
   height: 300px;
 }
 
@@ -85,7 +79,7 @@ li[data-sonner-toast=""] {
 
 a {
   text-decoration: none;
-  color: $black;
+  color: var(--dark-color);
 }
 
 button {
@@ -118,9 +112,9 @@ button {
 
 .dropdown-menu {
   border: 0 !important;
-  box-shadow: $shadow !important;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1) !important;
   margin-top: 14px !important;
-  background: $white;
+  background: #fff;
   border-radius: 8px;
   text-align: start !important;
   padding: 8px;
@@ -148,315 +142,68 @@ button {
       font-family: "Font Awesome 6 Pro";
       content: "\f00d";
       font-size: 14px;
-      color: $black;
+      color: var(--dark-color);
     }
     &:hover {
-      background: $input_stroke !important;
+      background: #f4f4f4 !important;
     }
   }
   h6 {
-    color: $black;
+    color: var(--dark-color);
     margin-bottom: 0;
   }
 }
 
 .modal-content {
-  background: $white;
+  background: #fff;
   border-radius: 24px;
   overflow: hidden;
 }
 
 .modal .modal-xl {
   max-width: unset;
-  // width: min(100% - 24px, 1340px);
   margin: 20px auto;
   justify-content: center;
 }
 
-.select__control {
-  box-shadow: none !important;
-  border-color: $input_stroke !important;
-  background-color: $input_bg !important;
-  border-radius: 12px !important;
-  font-size: 14px !important;
-  &:hover {
-    background-color: $white !important;
-  }
+.btn-solid-main {
+  background-color: var(--second-color);
+  color: #fff;
+  width: fit-content;
+  opacity: 1;
+  border-radius: 72px;
+  padding-block: 12px;
+  padding-inline: 30px;
 }
 
-.select__indicator-separator {
-  display: none !important;
+.text-main-color {
+  color: var(--main-color);
 }
 
-.select__menu {
-  white-space: nowrap !important;
-  width: fit-content !important;
-  z-index: 999999 !important;
-  font-size: 14px;
+.bg-main-color {
+  color: var(--main-color);
 }
 
-.select__multi-value {
-  margin: 0 !important;
-  margin-inline-end: 4px !important;
-  border-radius: 8px !important;
+.bg-main-50 {
+  background-color: var(--main-color-50);
 }
 
-.calender_modal .rmdp-calendar {
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  padding: 8px;
-  background: $white;
+.text-second-color {
+  color: var(--second-color);
 }
 
-.rmdp-wrapper {
-  background: $white !important;
+.bg-second-color {
+  background-color: var(--second-color);
 }
 
-.rmdp-day {
-  width: 52px !important;
-  height: 52px !important;
-  font-size: 16px !important;
-  color: $black !important;
-  transition: $transition;
-  span:hover {
-    background-color: $input_bg !important;
-    color: $main !important;
-  }
-  &.rmdp-today span {
-    background-color: $input_bg !important;
-    color: $main !important;
-  }
-  &.rmdp-disabled {
-    color: $gray !important;
-    cursor: not-allowed !important;
-    span {
-      text-decoration: line-through !important;
-      cursor: not-allowed !important;
-      &:hover {
-        background-color: transparent !important;
-        color: $gray !important;
-      }
-    }
-  }
+.text-dark-color {
+  color: var(--dark-color);
 }
 
-.rmdp-arrow-container {
-  width: 24px !important;
-  height: 24px !important;
-  @include centerFlex();
-  position: relative;
-  i {
-    display: none;
-  }
-  &::before {
-    font-family: "Font Awesome 6 Pro";
-    content: "\f104";
-    font-size: 14px;
-    color: $main;
-    @include centerAbsolute();
-  }
-  &.rmdp-right::before {
-    content: "\f105";
-  }
-  &:hover {
-    background: $input_bg !important;
-    box-shadow: none !important;
-  }
-  &.disabled {
-    cursor: not-allowed !important;
-    &::before {
-      color: $input_hint !important;
-    }
-    &:hover {
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-  }
+.text-yellow-color {
+  color: var(--yellow-color);
 }
 
-.rmdp-range {
-  background: $main !important;
-  box-shadow: none !important;
-  color: $white !important;
-  &.rmdp-today span {
-    background: $main !important;
-    color: $white !important;
-  }
-}
-
-.rmdp-week:first-child {
-  margin-bottom: 16px;
-  .rmdp-week-day {
-    color: $main !important;
-  }
-}
-
-.rmdp-header-values {
-  color: $main !important;
-}
-
-.rmdp-shadow {
-  box-shadow: none !important;
-}
-
-.calender_wrapper {
-  min-height: 384px;
-}
-
-.rmdp-week-day {
-  width: 52px !important;
-}
-
-.form-switch input {
-  box-shadow: none !important;
-}
-
-.rmdp-selected span {
-  background-color: $main !important;
-  color: $white !important;
-}
-
-// phone input
-.react-tel-input {
-  position: relative;
-  display: flex;
-  flex-direction: row-reverse;
-  border: 1px solid $input_stroke;
-  background: $input_bg;
-  height: 48px;
-  border-radius: 12px;
-  direction: ltr;
-  .form-control {
-    width: 100%;
-    height: 100%;
-    color: $black;
-    font-size: 14px;
-    background: $input_bg;
-    padding: 8px !important;
-    border-radius: 12px;
-    direction: ltr;
-    border: 0 !important;
-  }
-
-  .flag-dropdown {
-    background: transparent;
-    border: none;
-    position: static;
-    border-radius: 12px 0 0 12px;
-    min-width: 52px;
-    &.open {
-      background: $input_bg;
-      border-radius: 12px;
-      .selected-flag {
-        border-radius: 12px;
-        background: $input_bg;
-      }
-    }
-  }
-
-  .selected-flag {
-    background: transparent;
-    padding: 0;
-    width: 100%;
-    border-radius: 12px;
-    @include centerFlex();
-    .arrow {
-      border-top-color: $black;
-      &.up {
-        border-bottom-color: $black;
-      }
-    }
-    &:hover,
-    &:focus {
-      background: $input_bg;
-    }
-  }
-
-  .country-list {
-    width: 100%;
-    left: 0;
-    background: $white;
-    border: 1px solid $input_stroke;
-    border-radius: 12px;
-    box-shadow: 0px 2px 8px #0000001a;
-    margin-top: 4px;
-    scrollbar-width: none;
-    .search {
-      padding: 8px;
-      input {
-        margin: 0;
-        border: 1px solid $input_stroke;
-        height: 42px;
-        width: 100%;
-        border-radius: 8px;
-        direction: ltr !important;
-      }
-      background: $white;
-      span {
-        display: none;
-      }
-    }
-    .country {
-      color: $black;
-      padding: 8px 10px;
-      &:hover {
-        background: $input_bg;
-      }
-      &.highlight {
-        background: $input_bg;
-      }
-    }
-    .dial-code {
-      color: $gray;
-    }
-  }
-}
-
-// react flags customization
-.ReactFlagsSelect-module_selectBtn__19wW7 {
-  border: 1px solid $input_stroke !important;
-  height: 54px;
-  border-radius: 12px !important;
-  box-shadow: none;
-  outline: none;
-  color: $input_hint;
-  background: $input_bg !important;
-}
-
-.ReactFlagsSelect-module_filterBox__3m8EU {
-  padding: 8px;
-  input {
-    margin: 0;
-  }
-}
-
-.ReactFlagsSelect-module_flagsSelect__2pfa2 {
-  padding-bottom: 0;
-}
-
-.ReactFlagsSelect-module_selectOptions__3LNBJ {
-  font-size: 16px !important;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px !important;
-  border: 0 !important;
-  max-height: 208px !important;
-  border-radius: 8px !important;
-  scrollbar-width: none !important;
-  input {
-    height: 48px !important;
-    border-radius: 8px !important;
-  }
-  &::-webkit-scrollbar {
-    display: none !important;
-  }
-}
-
-.ReactFlagsSelect-module_filterBox__3m8EU input {
-  border: 1px solid $input_stroke !important;
-  width: 100% !important;
-  margin: 0 !important;
-}
-
-.ReactFlagsSelect-module_label__27pw9 {
-  color: $black;
+.offcanvas .nav a {
+  color: var(--dark-color) !important;
 }

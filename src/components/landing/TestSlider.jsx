@@ -1,6 +1,7 @@
 import { Card, Container } from "react-bootstrap";
 import Slider from "react-slick";
-import user from "/images/person.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export function TestSlider() {
   const testimonials = [
@@ -8,14 +9,14 @@ export function TestSlider() {
       id: 1,
       name: "John Doe",
       text: "Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.",
-      img: user,
+      img: "/images/person.jpg",
       rating: 5,
     },
     {
       id: 2,
       name: "Jane Smith",
       text: "Amazing experience! Everything was easy and smooth. Highly recommend it.",
-      img: user,
+      img: "/images/person.jpg",
       rating: 5,
     },
   ];
@@ -30,7 +31,7 @@ export function TestSlider() {
   };
 
   return (
-    <Container >
+    <Container>
       <Slider {...settings}>
         {testimonials.map((item) => (
           <div key={item.id}>

@@ -1,6 +1,3 @@
-import footerLogo from "/images/footerLogo.svg";
-import footerShape from "/images/footerBackground.png";
-
 export function Footer() {
   const footerItems = [
     { name: "About", href: "#about" },
@@ -18,7 +15,7 @@ export function Footer() {
   const renderFooterLinks = () =>
     footerItems.map((item, index) => (
       <li className="nav-item mx-2" key={index}>
-        <a className="nav-link text-white" href= {item.href}>
+        <a className="nav-link text-white" href={item.href}>
           {item.name}
         </a>
       </li>
@@ -41,7 +38,7 @@ export function Footer() {
       </li>
       <li>
         <a href={footerContact.contact} className="text-white">
-         {footerContact.contact}
+          {footerContact.contact}
         </a>
       </li>
     </>
@@ -54,7 +51,7 @@ export function Footer() {
           <div className="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start ps-0 ps-md-5 pt-5">
             <div className="d-flex flex-column gap-3 justify-content-center ps-0 ps-md-5 pt-5">
               <div className="footer-logo">
-                <img src={footerLogo} alt="footer logo" />
+                <img src="/images/footerLogo.svg" alt="footer logo" />
               </div>
               <div className="d-flex gap-3">
                 <i className="fa-brands fs-4 fa-twitter"></i>
@@ -67,7 +64,10 @@ export function Footer() {
           <div className="col-md-6 d-flex justify-content-end p-0">
             <div className="">
               <div className="footer-shape position-relative">
-                <img src={footerShape} alt="footer background" />
+                <img
+                  src="/images/footerBackground.png"
+                  alt="footer background"
+                />
                 <div className="position-absolute footer-items d-flex gap-5">
                   <ul className="d-flex flex-column gap-2">
                     {renderFooterLinks()}

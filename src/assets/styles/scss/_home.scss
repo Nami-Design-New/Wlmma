@@ -1,7 +1,9 @@
-#home {
-  background-size: cover;
+.hero_section {
   height: 100vh;
+  text-align: center;
+  overflow: hidden;
   position: relative;
+  background-size: cover;
   @media (min-width: 568px) and (max-width: 992px) {
     height: 75vh;
   }
@@ -71,11 +73,30 @@
   }
 }
 
-#about {
+.about_section {
   position: relative;
 }
 
-#how {
+.about-shape {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  height: 580px;
+  z-index: -11;
+
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  @media (max-width: 769px) {
+    left: -110px !important;
+  }
+}
+
+.how_section {
   position: relative;
   .how-shape {
     position: absolute;
@@ -86,7 +107,13 @@
     @media (max-width: 1200px) {
       right: -105px;
     }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
+
   .how-desc {
     width: 31%;
     text-wrap-style: stable;
@@ -107,9 +134,16 @@
   }
 }
 
-#experience {
+.experience_section {
   .experience-img {
     width: 230px;
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
   }
   .experience-header {
     @media (max-width: 567px) {
@@ -118,7 +152,7 @@
   }
 }
 
-#testimonial {
+.testimonial_section {
   .test-desc {
     width: 31%;
     text-wrap-style: stable;
@@ -132,29 +166,40 @@
   .slick-list {
     overflow-x: hidden;
   }
-  .slick-arrow{
+  .slick-arrow {
     display: none !important;
   }
 }
 
-#download {
+.download_section {
   .download-desc {
     color: #009090;
     width: 50%;
     @media (max-width: 768px) {
       width: 100%;
     }
-     @media (min-width:768px) and (max-width: 992px) {
+    @media (min-width: 768px) and (max-width: 992px) {
       width: 70%;
     }
   }
   .download-img {
     width: 500px;
+   img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
   }
-  .download-app-img{
-    width:400px;
+  .download-app-img {
+    width: 400px;
     @media (max-width: 768px) {
-    width: auto;
+      width: auto;
+    } img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
     }
   }
 }
