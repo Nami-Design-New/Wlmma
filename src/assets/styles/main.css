@@ -199,6 +199,13 @@ body nav {
   z-index: 999;
   background-image: url("./images/line-pattern.png");
 }
+body nav.scrolled {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+body nav.scrolled button {
+  color: var(--dark-color) !important;
+}
 body nav .navbar-brand {
   width: 200px;
 }
@@ -437,7 +444,7 @@ body .about-shape img {
 }
 @media (max-width: 769px) {
   body .about-shape {
-    left: -110px !important;
+    display: none;
   }
 }
 body .how_section {
@@ -536,6 +543,11 @@ body .download_section .download-desc {
 body .download_section .download-img {
   width: 500px;
 }
+@media screen and (max-width: 768px) {
+  body .download_section .download-img {
+    width: 300px;
+  }
+}
 body .download_section .download-img img {
   width: 100%;
   height: 100%;
@@ -547,7 +559,7 @@ body .download_section .download-app-img {
 }
 @media (max-width: 768px) {
   body .download_section .download-app-img {
-    width: auto;
+    width: 300px;
   }
 }
 body .download_section .download-app-img img {

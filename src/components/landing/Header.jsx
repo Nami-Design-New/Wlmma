@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
 import { Link } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const navItems = [
   { name: "Home", href: "index.html" },
@@ -26,13 +26,18 @@ export function Header() {
       </Nav.Link>
     ));
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector(".position-fixed");
+      header.classList.toggle("scrolled", window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      <Navbar
-        expand="lg"
-        className="position-absolute w-100 px-3"
-        variant="dark"
-      >
+      <Navbar expand="lg" className="position-fixed w-100 px-3" variant="dark">
         <Container className="d-flex justify-content-between">
           <Navbar.Brand href="index.html" className="d-flex align-items-center">
             <img src="/images/headerLogo.svg" alt="logo" height="40" />

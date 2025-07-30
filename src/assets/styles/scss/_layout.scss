@@ -1,6 +1,16 @@
 nav {
   z-index: 999;
   background-image: url("./images/line-pattern.png");
+
+  &.scrolled {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    button {
+      color: var(--dark-color) !important;
+    }
+  }
+
   .navbar-brand {
     width: 200px;
     @media (max-width: 567px) {
