@@ -126,11 +126,13 @@
   }
 
   .how-desc {
-    width: 31%;
+    width: 66%;
     text-wrap-style: stable;
     margin-inline: auto;
-    color: #0d0d0d80;
+    color: rgba(13, 13, 13, 0.5019607843);
     font-weight: 600;
+    margin-bottom: 44px;
+
     @media (max-width: 768px) {
       width: 100%;
     }
@@ -173,11 +175,12 @@
 
 .testimonial_section {
   .test-desc {
-    width: 31%;
+    width: 66%;
     text-wrap-style: stable;
     margin-inline: auto;
-    color: #0d0d0d80;
+    color: rgba(13, 13, 13, 0.5019607843);
     font-weight: 600;
+    margin-bottom: 44px;
     @media (max-width: 768px) {
       width: 100%;
     }

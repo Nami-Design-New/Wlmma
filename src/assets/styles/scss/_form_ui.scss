@@ -48,6 +48,8 @@ $gray: #8d8d8d;
     justify-content: center;
     flex-direction: column;
     gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
 
     .header {
       display: flex;

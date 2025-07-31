@@ -45,7 +45,7 @@ export function Footer() {
   );
 
   return (
-    <footer className="pt-5">
+    <footer>
       <div className="">
         <div className="row">
           <div className="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start ps-0 ps-md-5 pt-5">
@@ -54,10 +54,18 @@ export function Footer() {
                 <img src="/images/footerLogo.svg" alt="footer logo" />
               </div>
               <div className="d-flex gap-3">
-                <i className="fa-brands fs-4 fa-twitter"></i>
-                <i className="fa-brands fs-4 fa-linkedin"></i>
-                <i className="fa-brands fs-4 fa-youtube"></i>
-                <i className="fa-brands fs-4 fa-facebook-f"></i>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fs-4 fa-twitter"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fs-4 fa-linkedin"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fs-4 fa-youtube"></i>
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fs-4 fa-facebook-f"></i>
+                </a>
               </div>
             </div>
           </div>

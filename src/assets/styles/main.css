@@ -188,6 +188,10 @@ button {
   color: var(--yellow-color);
 }
 
+.text-orange-color {
+  color: var(--main-color);
+}
+
 .offcanvas .nav a {
   color: var(--dark-color) !important;
 }
@@ -479,11 +483,12 @@ body .how_section .how-shape img {
      object-fit: cover;
 }
 body .how_section .how-desc {
-  width: 31%;
+  width: 66%;
   text-wrap-style: stable;
   margin-inline: auto;
   color: rgba(13, 13, 13, 0.5019607843);
   font-weight: 600;
+  margin-bottom: 44px;
 }
 @media (max-width: 768px) {
   body .how_section .how-desc {
@@ -526,11 +531,12 @@ body .experience_section .experience-img img {
   }
 }
 body .testimonial_section .test-desc {
-  width: 31%;
+  width: 66%;
   text-wrap-style: stable;
   margin-inline: auto;
   color: rgba(13, 13, 13, 0.5019607843);
   font-weight: 600;
+  margin-bottom: 44px;
 }
 @media (max-width: 768px) {
   body .testimonial_section .test-desc {
@@ -619,6 +625,8 @@ body .login_section .form_ui {
   justify-content: center;
   flex-direction: column;
   gap: 16px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 body .login_section .form_ui .header {
   display: flex;
@@ -771,6 +779,8 @@ body .dashboard_layout aside {
   min-width: 16rem;
   height: 100vh;
   padding: 16px;
+  display: flex;
+  flex-direction: column;
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
 }
 body .dashboard_layout aside .logo {
@@ -782,7 +792,44 @@ body .dashboard_layout aside .nav_items {
   gap: 12px;
   margin-top: 24px;
   padding-top: 24px;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #ebebeb;
+}
+body .dashboard_layout aside .nav_items a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  color: #0d0d0d;
+  font-size: 14px;
+}
+body .dashboard_layout aside .nav_items a.active, body .dashboard_layout aside .nav_items a:hover {
+  background-image: linear-gradient(to right, #f05b4e, rgba(240, 91, 78, 0.8274509804));
+  box-shadow: 0px 0px 8px rgba(240, 91, 78, 0.5);
+  color: #fff;
+}
+body .dashboard_layout aside .nav_items a.active img, body .dashboard_layout aside .nav_items a:hover img {
+  filter: brightness(0) invert(1);
+}
+body .dashboard_layout aside .nav_items a img {
+  height: 20px;
+}
+body .dashboard_layout aside .logout {
+  border-top: 1px solid #ebebeb;
+  margin-top: auto;
+  padding: 24px 0;
+}
+body .dashboard_layout aside .logout .link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  color: #0d0d0d;
+  font-size: 14px;
+  cursor: pointer;
+}
+body .dashboard_layout aside .logout .link img {
+  height: 20px;
 }
 body .dashboard_layout main {
   width: 100%;
