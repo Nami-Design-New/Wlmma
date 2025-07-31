@@ -2,12 +2,15 @@ import { Form } from "react-bootstrap";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
+import useLogin from "../hooks/auth/useLogin";
 
 export default function Login() {
+  const { register, handleSubmit, errors, isPending } = useLogin();
+
   return (
     <section className="login_section">
       <div className="auth_form">
-        <form className="form_ui">
+        <form className="form_ui" onSubmit={handleSubmit}>
           <div className="header">
             <div className="logo">
               <img src="/images/headerLogo.svg" alt="" />
@@ -22,15 +25,27 @@ export default function Login() {
           </div>
 
           <InputField
-            label="Email"
-            type="email"
-            placeholder="Enter your email"
+            label="Phone number"
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="xxxxxxxxxxxx"
+            error={errors?.phone_number?.message}
+            {...register("phone_number")}
           />
-          <PasswordField label="Password" placeholder="Enter your password" />
+
+          <PasswordField
+            label="Password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            error={errors?.password?.message}
+            {...register("password")}
+          />
 
           <Form.Check type="checkbox" id="rememberMe" label="Remember me" />
 
-          <SubmitButton text="Login" className="mt-2" />
+          <SubmitButton text="Login" className="mt-2" loading={isPending} />
         </form>
       </div>
 

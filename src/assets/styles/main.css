@@ -192,6 +192,7 @@ body {
   position: relative;
   overflow-x: hidden;
   scrollbar-width: none;
+  background: #fff;
   font-family: "Vazirmatn", sans-serif;
 }
 body nav {
@@ -638,7 +639,16 @@ body .form_ui .input-field {
   width: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 6px;
+}
+body .form_ui .input-field .phone_code {
+  color: #808080;
+  position: absolute;
+  top: 41px;
+  left: 12px;
+  font-size: 14px;
+  font-weight: 600;
 }
 body .form_ui .input-field .pass-group {
   display: flex;
@@ -670,9 +680,13 @@ body .form_ui .input-field textarea {
   font-size: 14px;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
-  background: #fff;
   padding: 12px 16px;
   box-shadow: none !important;
+}
+body .form_ui .input-field input.phone,
+body .form_ui .input-field select.phone,
+body .form_ui .input-field textarea.phone {
+  padding-left: 50px;
 }
 body .form_ui .input-field textarea {
   height: 122px;
@@ -742,6 +756,9 @@ body .form-check input {
   float: none !important;
   cursor: pointer;
   box-shadow: none !important;
+}
+body .invalid-feedback {
+  display: block !important;
 }
 body main {
   min-height: calc(100dvh - 300px);
