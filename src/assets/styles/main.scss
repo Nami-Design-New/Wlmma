@@ -4,12 +4,12 @@ body {
   position: relative;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: #fffcfc;
   font-family: "Vazirmatn", sans-serif;
 
   @import "./scss/layout";
   @import "./scss/error-page";
   @import "./scss/home";
+  @import "./scss/form_ui";
 
   main {
     min-height: calc(100dvh - 300px);

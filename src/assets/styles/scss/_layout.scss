@@ -6,7 +6,8 @@ nav {
     background: #fff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
-    button {
+    button,
+    .navbar-nav a {
       color: var(--dark-color) !important;
     }
   }
@@ -29,8 +30,9 @@ nav {
 
 footer {
   overflow: hidden;
+
   .footer-shape {
-    z-index: -11;
+    z-index: 11;
     right: 0;
     width: 700px;
     img {
@@ -49,6 +51,7 @@ footer {
       width: 520px;
     }
   }
+  
   .footer-logo {
     width: 130px;
     img {
