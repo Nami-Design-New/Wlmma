@@ -206,21 +206,14 @@ body {
 body nav {
   z-index: 999;
   background-image: url("./images/line-pattern.png");
-}
-body nav.scrolled {
-  background: #fff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-body nav.scrolled button,
-body nav.scrolled .navbar-nav a {
-  color: var(--dark-color) !important;
+  transition: 0.3s ease-in-out;
 }
 body nav .navbar-brand {
-  width: 200px;
+  height: 80px;
 }
 @media (max-width: 567px) {
   body nav .navbar-brand {
-    width: 135px;
+    height: 70px;
   }
 }
 body nav .navbar-brand img {
@@ -231,6 +224,22 @@ body nav .navbar-brand img {
 }
 body nav .offcanvas.offcanvas-start {
   width: 240px;
+}
+body nav .nav-link {
+  background-color: #ff5b4b;
+  padding: 8px 16px !important;
+  border-radius: 8px;
+}
+body nav.scrolled {
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+body nav.scrolled button,
+body nav.scrolled .navbar-nav a {
+  color: var(--dark-color) !important;
+}
+body nav.scrolled .nav-link {
+  background-color: transparent;
 }
 body footer {
   overflow: hidden;
@@ -293,6 +302,9 @@ body footer .footer-items {
     left: 60%;
   }
 }
+body .offcanvas {
+  width: 300px !important;
+}
 body .error-page {
   background-color: #f8f9fa;
   height: 100vh;
@@ -333,7 +345,7 @@ body .error-page a:hover {
   background: var(--dark-color);
 }
 body .hero_section {
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   overflow: hidden;
   position: relative;
@@ -341,7 +353,7 @@ body .hero_section {
 }
 @media (min-width: 568px) and (max-width: 992px) {
   body .hero_section {
-    height: 75vh;
+    min-height: 75vh;
   }
 }
 body .hero_section .hero-img {
@@ -432,24 +444,46 @@ body .hero_section .hero-content .hero-desc {
 }
 body .about_section {
   position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+}
+body .about_section .aboutImg {
+  height: 600px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+body .about_section .tourGuide {
+  padding: 40px 0;
+}
+body .about_section .tourGuide img {
+  width: 100%;
+  height: 100%;
+  max-height: 700px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 @media screen and (max-width: 767px) {
+  body .about_section {
+    flex-direction: column;
+  }
   body .about_section .about-shape {
     display: none;
   }
-}
-body .about-shape {
-  position: absolute;
-  top: 10%;
-  left: 0;
-  height: 580px;
-  z-index: 11;
+  body .about_section .tourGuide {
+    display: none;
+  }
 }
 body .about-shape img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
+  max-height: 700px;
+  min-width: 300px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: left;
+     object-position: left;
 }
 @media (max-width: 769px) {
   body .about-shape {
@@ -578,16 +612,12 @@ body .download_section .download-img img {
   object-fit: cover;
 }
 body .download_section .download-app-img {
-  width: 400px;
-}
-@media (max-width: 768px) {
-  body .download_section .download-app-img {
-    width: 300px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 body .download_section .download-app-img img {
-  width: 100%;
-  height: 100%;
+  height: 50px;
   -o-object-fit: cover;
   object-fit: cover;
 }

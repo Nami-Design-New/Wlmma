@@ -15,7 +15,12 @@ export default function Download() {
             </div>
           </div>
           <div class="download-app-img m-auto mt-3" data-aos="fade-up">
-            <img src="/images/downloadApp.png" alt="download app" />
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              <img src="/images/Google_Play.svg" alt="download app" />
+            </a>
+            <a href="#!" target="_blank" rel="noopener noreferrer">
+              <img src="/images/App_Store.svg" alt="download app" />
+            </a>
           </div>
         </div>
       </div>

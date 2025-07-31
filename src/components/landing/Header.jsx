@@ -19,7 +19,7 @@ export function Header() {
       <Nav.Link
         key={index}
         href={item.href}
-        className="text-white fw-bold mx-3"
+        className="text-white fw-bold mx-1"
       >
         {item.name.trim()}
       </Nav.Link>
@@ -46,7 +46,7 @@ export function Header() {
             <Nav className="d-flex flex-row align-items-center">
               {renderNavLinks()}
             </Nav>
-            <a href="#download-app" className="btn-solid-main ms-5">
+            <a href="#download-app" className="btn-solid-main ms-3">
               Download Now
             </a>
           </div>

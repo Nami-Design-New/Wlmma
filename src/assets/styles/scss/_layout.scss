@@ -1,21 +1,12 @@
 nav {
   z-index: 999;
   background-image: url("./images/line-pattern.png");
-
-  &.scrolled {
-    background: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-    button,
-    .navbar-nav a {
-      color: var(--dark-color) !important;
-    }
-  }
+  transition: 0.3s ease-in-out;
 
   .navbar-brand {
-    width: 200px;
+    height: 80px;
     @media (max-width: 567px) {
-      width: 135px;
+      height: 70px;
     }
     img {
       width: 100%;
@@ -25,6 +16,23 @@ nav {
   }
   .offcanvas.offcanvas-start {
     width: 240px;
+  }
+  .nav-link {
+    background-color: #ff5b4b;
+    padding: 8px 16px !important;
+    border-radius: 8px;
+  }
+  &.scrolled {
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    button,
+    .navbar-nav a {
+      color: var(--dark-color) !important;
+    }
+    .nav-link {
+      background-color: transparent;
+    }
   }
 }
 
@@ -51,7 +59,7 @@ footer {
       width: 520px;
     }
   }
-  
+
   .footer-logo {
     width: 130px;
     img {
@@ -77,4 +85,9 @@ footer {
       left: 60%;
     }
   }
+}
+
+
+.offcanvas{
+    width: 300px !important;
 }
