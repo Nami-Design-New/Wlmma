@@ -40,6 +40,10 @@
   height: 300px;
 }
 
+:target {
+  scroll-margin-top: 100px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -759,6 +763,30 @@ body .form-check input {
 }
 body .invalid-feedback {
   display: block !important;
+}
+body .dashboard_layout {
+  display: flex;
+}
+body .dashboard_layout aside {
+  min-width: 16rem;
+  height: 100vh;
+  padding: 16px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+}
+body .dashboard_layout aside .logo {
+  padding: 12px;
+}
+body .dashboard_layout aside .nav_items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e0e0;
+}
+body .dashboard_layout main {
+  width: 100%;
+  padding: 16px;
 }
 body main {
   min-height: calc(100dvh - 300px);

@@ -1,0 +1,28 @@
+.dashboard_layout {
+  display: flex;
+
+  aside {
+    min-width: 16rem;
+    height: 100vh;
+    padding: 16px;
+    box-shadow: #959da533 0 8px 24px;
+
+    .logo {
+      padding: 12px;
+    }
+
+    .nav_items{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid #e0e0e0;
+    }
+  }
+
+  main {
+    width: 100%;
+    padding: 16px;
+  }
+}

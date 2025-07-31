@@ -3,10 +3,9 @@ import { Link } from "react-router";
 import { useEffect, useState } from "react";
 
 const navItems = [
-  { name: "Home", href: "index.html" },
+  { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Testimonials", href: "#testimonial" },
-  { name: "Contact", href: "#contact" },
 ];
 
 export function Header() {
@@ -20,7 +19,7 @@ export function Header() {
       <Nav.Link
         key={index}
         href={item.href}
-        className="text-white fw-bold mx-2"
+        className="text-white fw-bold mx-3"
       >
         {item.name.trim()}
       </Nav.Link>
@@ -39,7 +38,7 @@ export function Header() {
     <>
       <Navbar expand="lg" className="position-fixed w-100 px-3" variant="dark">
         <Container className="d-flex justify-content-between">
-          <Navbar.Brand href="index.html" className="d-flex align-items-center">
+          <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
             <img src="/images/headerLogo.svg" alt="logo" height="40" />
           </Navbar.Brand>
 
@@ -47,7 +46,7 @@ export function Header() {
             <Nav className="d-flex flex-row align-items-center">
               {renderNavLinks()}
             </Nav>
-            <a href="#download-app" className="btn-solid-main">
+            <a href="#download-app" className="btn-solid-main ms-5">
               Download Now
             </a>
           </div>

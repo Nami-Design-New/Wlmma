@@ -24,9 +24,9 @@ export default function How() {
     <section className="py-5 how_section">
       <div className="container">
         <div className="d-flex flex-column gap-2">
-          <h1 className="h6 text-center text-yellow-color fw-bold">Work</h1>
-          <h2 className="display-5 text-center fw-bold">How It Works</h2>
-          <p className="text-center lead how-desc">
+          <h1 className="h6 text-center text-yellow-color fw-bold" data-aos="fade-up">Work</h1>
+          <h2 className="display-5 text-center fw-bold" data-aos="fade-up">How It Works</h2>
+          <p className="text-center lead how-desc" data-aos="fade-up">
             Lorem ipsum dolor sit amet consectetur. Non tincidunt magna non et
             elit. Dolor turpis molestie dui magnis facilisis at fringilla quam.{" "}
           </p>
@@ -37,6 +37,7 @@ export default function How() {
             <div
               className="col-md-4 bg-main-50 how-card-item text-center"
               key={index}
+              data-aos="fade-up"
             >
               <div className="d-flex flex-column gap-3 h-100">
                 <div className="section-icon">
@@ -50,7 +51,7 @@ export default function How() {
         </div>
       </div>
 
-      <div className="how-shape">
+      <div className="how-shape" data-aos="fade-left">
         <img src="/images/howBackground.png" alt="how shape" />
       </div>
     </section>

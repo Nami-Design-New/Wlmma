@@ -67,6 +67,10 @@
   height: 300px;
 }
 
+:target {
+  scroll-margin-top: 100px;
+}
+
 ul {
   list-style: none;
   padding: 0;
