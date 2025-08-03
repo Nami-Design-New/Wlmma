@@ -42,8 +42,8 @@ export default function Login() {
             error={errors?.password?.message}
             {...register("password")}
           />
-
-          <Form.Check type="checkbox" id="rememberMe" label="Remember me" />
+{/* 
+          <Form.Check type="checkbox" id="rememberMe" label="Remember me" /> */}
 
           <SubmitButton text="Login" className="mt-2" loading={isPending} />
         </form>

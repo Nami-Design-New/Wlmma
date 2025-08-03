@@ -745,13 +745,35 @@ body .form_ui .check_field span {
   font-size: 14px;
   border: 1px solid #e0e0e0;
 }
-body .form_ui button {
+body .form_ui .log {
   width: 100%;
   height: 48px;
   border: 1px solid #f05b4e;
   color: #fff;
   border-radius: 12px;
   background-color: #f05b4e;
+}
+body .form_ui .image_fiels {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  cursor: pointer;
+  height: 220px;
+  border-radius: 16px;
+  width: 100%;
+  border: 1px dashed #c4c4c4;
+}
+body .form_ui .image_fiels i {
+  font-size: 40px;
+  color: #dbdbdb;
+}
+body .form_ui .image_fiels h6 {
+  font-size: 14px;
+}
+body .form_ui .image_fiels input {
+  display: none;
 }
 body .form-check-input:focus {
   border-color: #f05b4e;
@@ -791,6 +813,9 @@ body .dashboard_layout aside {
   overflow-y: scroll;
   flex-direction: column;
   box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  position: sticky;
+  top: 0;
+  left: 0;
 }
 body .dashboard_layout aside .logo {
   padding: 12px;
@@ -870,7 +895,7 @@ body .dashboard_layout aside .nav_items .accordion-item .accordion-body {
 body .dashboard_layout aside .logout {
   border-top: 1px solid #ebebeb;
   margin-top: auto;
-  padding: 24px 0;
+  padding: 24px 0 0;
 }
 body .dashboard_layout aside .logout .link {
   display: flex;
@@ -891,6 +916,7 @@ body .dashboard_layout main {
 body .dashboard_layout main .page_head {
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
 }
 body .dashboard_layout main .page_head h1 {
   font-size: 28px;
@@ -899,6 +925,219 @@ body .dashboard_layout main .page_head h1 {
 body .dashboard_layout main .page_head p {
   color: #777;
   font-size: 14px;
+}
+body .dashboard_layout main .nav-tabs {
+  background: #fafafa;
+  border-radius: 80px;
+  display: flex;
+  padding: 8px;
+  gap: 8px;
+  border: 0;
+}
+body .dashboard_layout main .nav-tabs .nav-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body .dashboard_layout main .nav-tabs .nav-item .nav-link {
+  width: 100%;
+  border: 0;
+  color: #0d0d0d;
+  background: #fff;
+  border-radius: 60px;
+  padding: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+body .dashboard_layout main .nav-tabs .nav-item .nav-link.active, body .dashboard_layout main .nav-tabs .nav-item .nav-link:hover {
+  background: #0d9595;
+  color: #fff;
+}
+body .dashboard_layout main .add_btn {
+  padding: 8px 16px;
+  background: #0d9595;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #fff;
+}
+body .dashboard_layout main .tab_wrapper {
+  padding: 16px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  border-radius: 16px;
+}
+body .dashboard_layout main .tab_wrapper .log {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline-start: auto;
+  padding: 10px 52px;
+  height: auto;
+  border-radius: 80px;
+}
+body .dashboard_layout main .input-field h6 {
+  font-size: 14px;
+}
+body .dashboard_layout main .ck-rounded-corners {
+  min-height: 300px;
+}
+body .dashboard_layout main .ck-body-wrapper {
+  display: none;
+}
+body .dashboard_layout main .dashboard_section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+body .dashboard_layout main .dashboard_section .home_banner {
+  padding-inline-start: 24px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, #ae1304, #ff5b4b);
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  color: #fff;
+}
+body .dashboard_layout main .dashboard_section .home_banner h1 {
+  font-size: 28px;
+}
+body .dashboard_layout main .dashboard_section .home_banner p {
+  margin: 0;
+}
+body .dashboard_layout main .dashboard_section .home_banner img {
+  height: 148px;
+}
+body .dashboard_layout main .dashboard_section .quick_actions {
+  background: #fff;
+  border: 1px solid #ebebeb;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  border-radius: 16px;
+  padding: 16px;
+}
+body .dashboard_layout main .dashboard_section .quick_actions h5 {
+  font-size: 20px;
+  color: #0d0d0d;
+}
+body .dashboard_layout main .dashboard_section .quick_actions p {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #777;
+}
+body .dashboard_layout main .dashboard_section .quick_actions .actions_links {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+}
+body .dashboard_layout main .dashboard_section .quick_actions .actions_links .action_link {
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  flex: 1;
+  gap: 24px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid #ebebeb;
+  color: #0d0d0d;
+  font-size: 14px;
+  cursor: pointer;
+}
+body .dashboard_layout main .dashboard_section .quick_actions .actions_links .action_link:hover {
+  background: #f5f5f5;
+}
+body .dashboard_layout main .dashboard_section .quick_actions .actions_links .action_link p {
+  font-size: 12px;
+  margin: 0;
+}
+body .dashboard_layout main .dashboard_section .statistics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+body .dashboard_layout main .dashboard_section .statistics .static_card {
+  width: 100%;
+  padding: 16px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+  border-radius: 16px;
+  border: 1px solid #ebebeb;
+}
+body .table-container {
+  overflow-x: auto;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+body .table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+body .table-container table thead th {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  background: #f5f5f5;
+  font-weight: bold;
+}
+body .table-container table tbody tr:hover {
+  background-color: #fafafa;
+}
+body .table-container table tbody tr td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+body .table-container table tbody tr:last-child td {
+  border-bottom: none;
+}
+body .table-container table .action_btn {
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+body .pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .pagination .pagination_controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+body .pagination .pagination_controls .numbers {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+body .pagination .pagination_controls .numbers button {
+  aspect-ratio: 1/1;
+}
+body .pagination .pagination_controls .numbers button.active {
+  background: #f05b4e;
+  color: #fff;
+  border-color: #f05b4e;
+}
+body .pagination .pagination_controls button {
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: white;
+  height: auto;
+  color: #0d0d0d;
+  cursor: pointer;
+}
+body .pagination .pagination_controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 body main {
   min-height: calc(100dvh - 300px);

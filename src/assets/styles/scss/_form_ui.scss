@@ -173,13 +173,39 @@ $gray: #8d8d8d;
     }
   }
 
-  button {
+  .log {
     width: 100%;
     height: 48px;
     border: 1px solid $main;
     color: $white;
     border-radius: 12px;
     background-color: $main;
+  }
+
+  .image_fiels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    height: 220px;
+    border-radius: 16px;
+    width: 100%;
+    border: 1px dashed #c4c4c4;
+
+    i {
+      font-size: 40px;
+      color: #dbdbdb;
+    }
+
+    h6 {
+      font-size: 14px;
+    }
+
+    input {
+      display: none;
+    }
   }
 }
 

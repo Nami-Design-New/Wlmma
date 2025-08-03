@@ -6,8 +6,13 @@ import DashboardLayout from "../layouts/DashboardLayout";
 
 import Login from "../routes/Login";
 import Error from "../routes/Error";
+import Users from "../routes/Users";
+import Requests from "../routes/Requests";
+import Companies from "../routes/Companies";
+import DashBoard from "./../routes/DashBoard";
 import LandingPage from "../routes/LandingPage";
 import GeneralSettings from "../routes/GeneralSettings";
+import ProvidersUsers from "../routes/ProvidersUsers";
 
 export const router = createBrowserRouter([
   {
@@ -39,11 +44,27 @@ export const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <>main page</>,
+            element: <DashBoard />,
           },
           {
             path: "general-settings",
             element: <GeneralSettings />,
+          },
+          {
+            path: "users",
+            element: <Users />,
+          },
+          {
+            path: "providers",
+            element: <ProvidersUsers />,
+          },
+          {
+            path: "companies",
+            element: <Companies />,
+          },
+          {
+            path: "requests",
+            element: <Requests />,
           },
         ],
       },

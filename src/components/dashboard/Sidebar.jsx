@@ -22,7 +22,15 @@ export default function Sidebar() {
           <span>General Settings</span>
         </NavLink>
 
-        <Accordion>
+        <Accordion
+          defaultActiveKey={
+            location.pathname.includes("users") ||
+            location.pathname.includes("providers") ||
+            location.pathname.includes("companies")
+              ? "0"
+              : undefined
+          }
+        >
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               <div>
