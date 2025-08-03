@@ -1063,6 +1063,26 @@ body .dashboard_layout main .dashboard_section .statistics .static_card {
   border-radius: 16px;
   border: 1px solid #ebebeb;
 }
+body .dashboard_layout main .dashboard_section .statistics .static_card .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+body .dashboard_layout main .dashboard_section .statistics .static_card .head h6 {
+  margin-bottom: 0;
+  color: #777;
+  font-size: 14px;
+}
+body .dashboard_layout main .dashboard_section .statistics .static_card .head .icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ebebeb;
+}
 body .table-container {
   overflow-x: auto;
   margin-top: 1rem;

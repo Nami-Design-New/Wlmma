@@ -1,4 +1,3 @@
-import { Form } from "react-bootstrap";
 import InputField from "../ui/forms/InputField";
 import PasswordField from "../ui/forms/PasswordField";
 import SubmitButton from "../ui/forms/SubmitButton";
@@ -42,8 +41,6 @@ export default function Login() {
             error={errors?.password?.message}
             {...register("password")}
           />
-{/* 
-          <Form.Check type="checkbox" id="rememberMe" label="Remember me" /> */}
 
           <SubmitButton text="Login" className="mt-2" loading={isPending} />
         </form>

@@ -5,27 +5,25 @@ export default function DashBoard() {
     {
       icon: "/icons/customize.svg",
       title: "General Settings",
-      desc: "Customize your app settings",
+      desc: "Manage your app's terms, policies, and slider content",
     },
-
     {
       icon: "/icons/user-plus.svg",
       title: "Providers Requests",
-      desc: "Customize your app settings",
+      desc: "Review and approve new service provider registrations",
     },
-
     {
       icon: "/icons/reservations.svg",
       title: "Reservations",
-      desc: "Customize your app settings",
+      desc: "View and manage all user bookings and schedules",
     },
-
     {
       icon: "/icons/support-messages.svg",
       title: "Support Messages",
-      desc: "Customize your app settings",
+      desc: "Respond to user inquiries and support requests",
     },
   ];
+
   return (
     <section className="dashboard_section">
       <div className="home_banner">
@@ -68,17 +66,50 @@ export default function DashBoard() {
           <div className="head">
             <h6>All Users</h6>
             <div className="icon">
-              <img src="/icons/users.svg" alt="" />
+              <i className="fa-solid fa-users"></i>
             </div>
           </div>
 
           <div className="content">
-            h
+            <h3>2,847</h3>
           </div>
         </div>
-        <div className="static_card"></div>
-        <div className="static_card"></div>
-        <div className="static_card"></div>
+        <div className="static_card">
+          <div className="head">
+            <h6>Service Providers</h6>
+            <div className="icon">
+              <i className="fa-solid fa-users"></i>
+            </div>
+          </div>
+
+          <div className="content">
+            <h3>253</h3>
+          </div>
+        </div>
+        <div className="static_card">
+          <div className="head">
+            <h6>All Users</h6>
+            <div className="icon">
+              <i className="fa-solid fa-users"></i>
+            </div>
+          </div>
+
+          <div className="content">
+            <h3>2,847</h3>
+          </div>
+        </div>
+        <div className="static_card">
+          <div className="head">
+            <h6>All Users</h6>
+            <div className="icon">
+              <i className="fa-solid fa-users"></i>
+            </div>
+          </div>
+
+          <div className="content">
+            <h3>2,847</h3>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -299,6 +299,27 @@
           box-shadow: #959da533 0 8px 24px;
           border-radius: 16px;
           border: 1px solid #ebebeb;
+
+          .head {
+            @include space-between();
+            margin-bottom: 16px;
+
+            h6 {
+              margin-bottom: 0;
+              color: #777;
+              font-size: 14px;
+            }
+
+            .icon {
+              width: 42px;
+              height: 42px;
+              border-radius: 8px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border: 1px solid #ebebeb;
+            }
+          }
         }
       }
     }
