@@ -1,10 +1,13 @@
 import { createBrowserRouter, Outlet } from "react-router";
-import Error from "../routes/Error";
-import LandingPage from "../routes/LandingPage";
+
 import LandingLayout from "../layouts/LandingLayout";
-import Login from "../routes/Login";
-import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectionProvider from "./ProtectionProvider";
+import DashboardLayout from "../layouts/DashboardLayout";
+
+import Login from "../routes/Login";
+import Error from "../routes/Error";
+import AppSliders from "./../routes/AppSliders";
+import LandingPage from "../routes/LandingPage";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +40,10 @@ export const router = createBrowserRouter([
           {
             index: true,
             element: <>main page</>,
+          },
+          {
+            path: "app-sliders",
+            element: <AppSliders />,
           },
         ],
       },

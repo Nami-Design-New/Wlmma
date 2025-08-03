@@ -25,13 +25,13 @@ export default function Login() {
           </div>
 
           <InputField
-            label="Phone number"
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="xxxxxxxxxxxx"
-            error={errors?.phone_number?.message}
-            {...register("phone_number")}
+            label="Email Address"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email address"
+            error={errors?.email?.message}
+            {...register("email")}
           />
 
           <PasswordField

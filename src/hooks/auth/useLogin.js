@@ -9,7 +9,7 @@ import axiosInstance from "../../utils/axiosInstance";
 
 export default function useLogin() {
   const schema = yup.object().shape({
-    phone_number: yup.string().required("Please enter your phone number"),
+    email: yup.string().required("Please enter your phone number"),
     password: yup.string().required("Please enter your password"),
   });
 
@@ -24,7 +24,7 @@ export default function useLogin() {
     resolver: yupResolver(schema),
     mode: "onChange",
     defaultValues: {
-      phone_number: "",
+      email: "",
       password: "",
     },
   });
@@ -33,7 +33,7 @@ export default function useLogin() {
     mutationFn: async (data) => {
       const formData = new FormData();
 
-      formData.append("phone_number", "+966" + data.phone_number);
+      formData.append("email", data.email);
       formData.append("password", data.password);
 
       const response = await axiosInstance.post(
