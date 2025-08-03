@@ -17,7 +17,12 @@ export default function Sidebar() {
           <span>Dashboard</span>
         </NavLink>
 
-        <Accordion defaultActiveKey="0">
+        <NavLink to="general-settings">
+          <img src="/icons/settings.svg" alt="settings" />
+          <span>General Settings</span>
+        </NavLink>
+
+        <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               <div>
@@ -36,33 +41,6 @@ export default function Sidebar() {
               </NavLink>
               <NavLink to="companies">
                 <span className="circle"></span> Companies
-              </NavLink>
-            </Accordion.Body>
-          </Accordion.Item>
-
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>
-              <div>
-                <img src="/icons/settings.svg" alt="settings" />
-                <span>General Settings</span>
-              </div>
-              <i className="fa-regular fa-angle-right"></i>
-            </Accordion.Header>
-            <Accordion.Body>
-              <NavLink to="app-sliders">
-                <span className="circle"></span> App Sliders
-              </NavLink>
-              <NavLink to="terms-conditions">
-                <span className="circle"></span> Terms & Conditions
-              </NavLink>
-              <NavLink to="about-us">
-                <span className="circle"></span> About us
-              </NavLink>
-              <NavLink to="privacy-policy">
-                <span className="circle"></span> Privacy Policy
-              </NavLink>
-              <NavLink to="faqs">
-                <span className="circle"></span> FAQs
               </NavLink>
             </Accordion.Body>
           </Accordion.Item>

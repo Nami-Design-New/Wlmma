@@ -6,8 +6,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 
 import Login from "../routes/Login";
 import Error from "../routes/Error";
-import AppSliders from "./../routes/AppSliders";
 import LandingPage from "../routes/LandingPage";
+import GeneralSettings from "../routes/GeneralSettings";
 
 export const router = createBrowserRouter([
   {
@@ -42,8 +42,8 @@ export const router = createBrowserRouter([
             element: <>main page</>,
           },
           {
-            path: "app-sliders",
-            element: <AppSliders />,
+            path: "general-settings",
+            element: <GeneralSettings />,
           },
         ],
       },
