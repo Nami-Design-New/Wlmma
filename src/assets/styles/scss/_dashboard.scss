@@ -318,8 +318,46 @@
               align-items: center;
               justify-content: center;
               border: 1px solid #ebebeb;
+              color: #f05b4e;
             }
           }
+          p {
+            font-size: 12px;
+            margin: 0;
+            text-align: end;
+          }
+        }
+      }
+
+      .charts_area {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .chart_row {
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+
+        .chart_item {
+          flex: 1;
+          box-shadow: 0 8px 24px #959da533;
+          border-radius: 16px;
+          border: 1px solid #ebebeb;
+          padding: 16px;
+          background-color: #fff;
+
+          h6 {
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+          }
+        }
+
+        .chart_item.full {
+          width: 100%;
         }
       }
     }

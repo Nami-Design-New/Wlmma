@@ -1082,6 +1082,39 @@ body .dashboard_layout main .dashboard_section .statistics .static_card .head .i
   align-items: center;
   justify-content: center;
   border: 1px solid #ebebeb;
+  color: #f05b4e;
+}
+body .dashboard_layout main .dashboard_section .statistics .static_card p {
+  font-size: 12px;
+  margin: 0;
+  text-align: end;
+}
+body .dashboard_layout main .dashboard_section .charts_area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+body .dashboard_layout main .dashboard_section .charts_area .chart_row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+body .dashboard_layout main .dashboard_section .charts_area .chart_item {
+  flex: 1;
+  box-shadow: 0 8px 24px rgba(149, 157, 165, 0.2);
+  border-radius: 16px;
+  border: 1px solid #ebebeb;
+  padding: 16px;
+  background-color: #fff;
+}
+body .dashboard_layout main .dashboard_section .charts_area .chart_item h6 {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+body .dashboard_layout main .dashboard_section .charts_area .chart_item.full {
+  width: 100%;
 }
 body .table-container {
   overflow-x: auto;

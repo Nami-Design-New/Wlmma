@@ -1,12 +1,21 @@
 import { useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
-import { CKEditor } from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import JoditEditor from "jodit-react";
 import SubmitButton from "./../ui/forms/SubmitButton";
 import AppSlidersTab from "../components/dashboard/general-settings/AppSlidersTab";
 
 export default function GeneralSettings() {
   const [key, setKey] = useState("terms-conditions");
+
+  const [terms, setTerms] = useState("");
+  const [privacy, setPrivacy] = useState("");
+  const [about, setAbout] = useState("");
+
+  const editorConfig = {
+    readonly: false,
+    placeholder: "Start typing here...",
+    height: 300,
+  };
 
   return (
     <section className="form_ui">
@@ -25,11 +34,10 @@ export default function GeneralSettings() {
           <div className="tab_wrapper">
             <div className="input-field mb-3">
               <h6>Terms & Conditions</h6>
-              <CKEditor
-                editor={ClassicEditor}
-                config={{
-                  placeholder: "Enter terms & conditions...",
-                }}
+              <JoditEditor
+                value={terms}
+                config={editorConfig}
+                onChange={(content) => setTerms(content)}
               />
             </div>
 
@@ -43,11 +51,10 @@ export default function GeneralSettings() {
           <div className="tab_wrapper">
             <div className="input-field mb-3">
               <h6>Privacy Policy</h6>
-              <CKEditor
-                editor={ClassicEditor}
-                config={{
-                  placeholder: "Enter privacy policy...",
-                }}
+              <JoditEditor
+                value={privacy}
+                config={editorConfig}
+                onChange={(content) => setPrivacy(content)}
               />
             </div>
 
@@ -61,11 +68,10 @@ export default function GeneralSettings() {
           <div className="tab_wrapper">
             <div className="input-field mb-3">
               <h6>About Us</h6>
-              <CKEditor
-                editor={ClassicEditor}
-                config={{
-                  placeholder: "Enter about us content...",
-                }}
+              <JoditEditor
+                value={about}
+                config={editorConfig}
+                onChange={(content) => setAbout(content)}
               />
             </div>
 
