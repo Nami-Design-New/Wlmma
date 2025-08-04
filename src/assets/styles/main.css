@@ -1154,6 +1154,11 @@ body .table-container table .action_btn {
   cursor: pointer;
   border: 1px solid #ccc;
 }
+body .table-container table .requests_action {
+  border-radius: 6px;
+  padding: 6px 10px;
+  border: 1px solid #dedede;
+}
 body .pagination {
   margin-top: 1.5rem;
   display: flex;

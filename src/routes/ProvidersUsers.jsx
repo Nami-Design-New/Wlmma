@@ -6,10 +6,72 @@ export default function ProvidersUsers() {
       header: "ID",
       accessorKey: "id",
     },
+    {
+      header: "Name",
+      accessorKey: "name",
+    },
+    {
+      header: "Phone Number",
+      accessorKey: "phone_number",
+    },
+    {
+      header: "Gender",
+      accessorKey: "gender",
+    },
+    {
+      header: "Join Date",
+      accessorKey: "join_date",
+    }
   ];
-  const data = [
+   const data = [
     {
       id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
+    },
+    {
+      id: 1,
+      name: "John Doe",
+      phone_number: "01027964469",
+      gender: "Male",
+      join_date: "2022-01-01",
     },
   ];
   

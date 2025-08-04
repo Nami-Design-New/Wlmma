@@ -13,6 +13,9 @@ import DashBoard from "./../routes/DashBoard";
 import LandingPage from "../routes/LandingPage";
 import GeneralSettings from "../routes/GeneralSettings";
 import ProvidersUsers from "../routes/ProvidersUsers";
+import ToolOrders from "../routes/ToolOrders";
+import Reservations from "../routes/Reservations";
+import Support from "../routes/Support";
 
 export const router = createBrowserRouter([
   {
@@ -66,6 +69,18 @@ export const router = createBrowserRouter([
             path: "requests",
             element: <Requests />,
           },
+          {
+            path: "orders",
+            element: <ToolOrders />,
+          },
+          {
+            path: "bookings",
+            element: <Reservations />,
+          },
+          {
+            path: "support",
+            element: <Support />,
+          }
         ],
       },
     ],

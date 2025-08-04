@@ -1,14 +1,30 @@
 import Chart from "react-apexcharts";
 
 export default function DashboardCharts() {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+
   const sharedOptions = {
     chart: {
       toolbar: { show: false },
       zoom: { enabled: false },
-      foreColor: "#666",
+      foreColor: "#8d8d8d",
+      fontFamily: "inherit",
     },
     grid: {
-      borderColor: "#eee",
+      borderColor: "#e0e0e0",
       row: { colors: ["#fafafa", "transparent"], opacity: 0.5 },
     },
     stroke: {
@@ -17,7 +33,17 @@ export default function DashboardCharts() {
     },
     legend: {
       position: "top",
-      labels: { colors: "#555" },
+      labels: { colors: "#8d8d8d" },
+    },
+    xaxis: {
+      categories: months,
+      labels: {
+        rotate: -45,
+        style: { colors: "#8d8d8d", fontSize: "12px" },
+      },
+    },
+    yaxis: {
+      labels: { style: { colors: "#8d8d8d", fontSize: "12px" } },
     },
   };
 
@@ -38,58 +64,25 @@ export default function DashboardCharts() {
     options: {
       ...sharedOptions,
       chart: { ...sharedOptions.chart, type: "line" },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-        labels: {
-          rotate: -45,
-          hideOverlappingLabels: false,
-          style: { colors: "#555" },
-        },
-      },
-      colors: ["#1E90FF", "#6A5ACD"],
+      colors: ["#f05b4e", "#0d9595"],
     },
   };
 
   const reservationsOverview = {
     series: [
       {
-        name: "Bookings This Month",
+        name: "Bookings",
         data: [44, 55, 57, 56, 61, 58, 63, 62, 66, 69, 72, 75],
       },
     ],
     options: {
       ...sharedOptions,
-      chart: { ...sharedOptions.chart, type: "bar", stacked: false },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
+      chart: {
+        ...sharedOptions.chart,
+        type: "bar",
       },
-      colors: ["#4CAF50", "#B0BEC5"],
+
+      colors: ["#0d9595"],
     },
   };
 
@@ -103,23 +96,7 @@ export default function DashboardCharts() {
     options: {
       ...sharedOptions,
       chart: { ...sharedOptions.chart, type: "bar" },
-      xaxis: {
-        categories: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-      },
-      colors: ["#FF9800"],
+      colors: ["#faae43"],
     },
   };
 
