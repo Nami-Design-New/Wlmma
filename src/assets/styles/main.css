@@ -1184,7 +1184,6 @@ body .pagination .pagination_controls .numbers button.active {
   border-color: #f05b4e;
 }
 body .pagination .pagination_controls button {
-  padding: 4px 8px;
   font-size: 14px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -1192,6 +1191,11 @@ body .pagination .pagination_controls button {
   height: auto;
   color: #0d0d0d;
   cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 body .pagination .pagination_controls button:disabled {
   opacity: 0.5;

@@ -50,7 +50,7 @@ export default function DataTable({ data, columns }) {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            <i className="fa-light fa-angle-left"></i>
           </button>
 
           <div className="numbers">
@@ -71,7 +71,7 @@ export default function DataTable({ data, columns }) {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            <i className="fa-light fa-angle-right"></i>
           </button>
         </div>
 

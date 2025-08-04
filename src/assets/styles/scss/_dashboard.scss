@@ -415,7 +415,7 @@
       border: 1px solid #ccc;
     }
 
-    .requests_action{
+    .requests_action {
       border-radius: 6px;
       padding: 6px 10px;
       border: 1px solid #dedede;
@@ -451,7 +451,6 @@
     }
 
     button {
-      padding: 4px 8px;
       font-size: 14px;
       border-radius: 8px;
       border: 1px solid #ccc;
@@ -459,6 +458,11 @@
       height: auto;
       color: #0d0d0d;
       cursor: pointer;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:disabled {
         opacity: 0.5;
