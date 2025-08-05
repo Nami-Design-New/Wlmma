@@ -4,7 +4,7 @@ import SettingTab from "../components/dashboard/general-settings/SettingTab";
 import AppSlidersTab from "./../components/dashboard/general-settings/AppSlidersTab";
 
 export default function GeneralSettings() {
-  const [key, setKey] = useState("terms-conditions");
+  const [key, setKey] = useState("about-us");
 
   return (
     <section className="form_ui">

@@ -1,17 +1,11 @@
-import { useEffect, useState } from "react";
-import { Fancybox } from "@fancyapps/ui";
+import { useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
-import useGetTools from "../hooks/settings/useGetTools";
+import useGetActivities from "../hooks/settings/useGetActivities";
 import DataLoader from "../ui/DataLoader";
-import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-export default function ToolOrders() {
+export default function Activities() {
   const [page, setPage] = useState(1);
-  const { data: tools, total, isLoading } = useGetTools(page);
-
-  useEffect(() => {
-    Fancybox.bind("[data-fancybox]", {});
-  }, []);
+  const { data: activities, total, isLoading } = useGetActivities(page);
 
   const cols = [
     {
@@ -22,7 +16,7 @@ export default function ToolOrders() {
       header: "Image",
       accessorKey: "image",
       cell: ({ row }) => {
-        const images = row.original.tool_images || [];
+        const images = row.original.activity_images || [];
         const groupName = `gallery-${row.original.id}`;
 
         return (
@@ -57,24 +51,36 @@ export default function ToolOrders() {
       },
     },
     {
-      header: "Name",
-      accessorKey: "name_en",
+      header: "Title",
+      accessorKey: "title_en",
+    },
+    {
+      header: "Status",
+      accessorKey: "status",
+    },
+    {
+      header: "City",
+      accessorKey: "city_name_en",
     },
     {
       header: "Price",
       accessorKey: "price",
     },
     {
-      header: "Provider",
-      accessorKey: "user.name",
+      header: "Capacity",
+      accessorKey: "capacity",
+    },
+    {
+      header: "Rate",
+      accessorKey: "average_rating",
     },
   ];
 
   return (
     <section className="form_ui">
       <div className="page_head">
-        <h1>Commercial Tools</h1>
-        <p>View and manage all orders for tools</p>
+        <h1>Reservations</h1>
+        <p>View and manage all user bookings and schedules</p>
       </div>
 
       <div className="tab_wrapper">
@@ -82,7 +88,7 @@ export default function ToolOrders() {
           <DataLoader />
         ) : (
           <DataTable
-            data={tools}
+            data={activities}
             columns={cols}
             total={Math.ceil(total / 8)}
             page={page}

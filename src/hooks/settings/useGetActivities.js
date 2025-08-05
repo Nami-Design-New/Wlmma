@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function useGetTools(page = 1) {
+export default function useGetActivities(page = 1) {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["tools", page],
+    queryKey: ["activities", page],
     queryFn: () => getTools(page),
   });
   return { isLoading, data: data?.data, total: data?.total, error };
@@ -11,7 +11,7 @@ export default function useGetTools(page = 1) {
 
 const getTools = async (page) => {
   try {
-    const res = await axiosInstance.get("/dashboard/commercial-tools", {
+    const res = await axiosInstance.get("/dashboard/admin_activities", {
       params: {
         page: page,
         per_page: 8,

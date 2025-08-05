@@ -230,3 +230,48 @@ button {
     stroke: var(--main-color);
   }
 }
+
+.confirmation_modal {
+  p {
+    margin-top: 16px;
+    margin-bottom: 4px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    span {
+      line-height: inherit;
+      color: #a80200;
+      font-weight: 600;
+    }
+  }
+
+  .cancel {
+    @include clearInput();
+    height: 44px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #000;
+    color: #000;
+    &:hover {
+      background: none;
+    }
+  }
+
+  .confirm {
+    background: #ff5b4b;
+    width: 100%;
+    height: 44px;
+    color: #fff;
+    border-radius: 12px;
+    &:hover {
+      background: #ff5b4b;
+    }
+    &.red {
+      background: #ff3a29;
+      &:hover {
+        background: #ff3a29;
+      }
+    }
+  }
+}

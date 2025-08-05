@@ -55,23 +55,28 @@ export default function Sidebar() {
         </Accordion>
 
         <NavLink to="requests">
-          <img src="/icons/requests.svg" alt="requests" />
+          <img src="/icons/user_plus.svg" alt="requests" />
           <span>Providers Requests</span>
+        </NavLink>
+
+        <NavLink to="trip-types">
+          <img src="/icons/adventures.svg" alt="bookings" />
+          <span>Adventures (Trip Types)</span>
+        </NavLink>
+
+        <NavLink to="activities">
+          <img src="/icons/activities.svg" alt="bookings" />
+          <span>Activities</span>
+        </NavLink>
+
+        <NavLink to="tools">
+          <img src="/icons/orders.svg" alt="orders" />
+          <span>Commercial Tool</span>
         </NavLink>
 
         <NavLink to="support">
           <img src="/icons/support.svg" alt="support" />
           <span>Support Messages</span>
-        </NavLink>
-
-        <NavLink to="bookings">
-          <img src="/icons/bookings.svg" alt="bookings" />
-          <span>Bookings</span>
-        </NavLink>
-
-        <NavLink to="orders">
-          <img src="/icons/orders.svg" alt="orders" />
-          <span>Tool Orders</span>
         </NavLink>
       </div>
 
