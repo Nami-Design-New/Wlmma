@@ -1,5 +1,6 @@
 import DataTable from "../components/dashboard/DataTabel";
 import useGetUsers from "../hooks/users/useGetUsers";
+import DataLoader from "../ui/DataLoader";
 
 export default function ProvidersUsers() {
   const { data: users, isLoading } = useGetUsers(2);
@@ -30,8 +31,7 @@ export default function ProvidersUsers() {
       },
     },
   ];
- 
-  
+
   return (
     <section className="form_ui">
       <div className="page_head">
@@ -40,7 +40,11 @@ export default function ProvidersUsers() {
       </div>
 
       <div className="tab_wrapper">
-        {!isLoading && <DataTable data={users} columns={cols} />}
+        {isLoading ? (
+          <DataLoader />
+        ) : (
+          <DataTable data={users} columns={cols} />
+        )}
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ export default function useLogout() {
 
   const { mutate: logout, isPending } = useMutation({
     mutationFn: async () => {
-      const response = await axiosInstance.get("/api/admin/logout");
+      const response = await axiosInstance.get("/admin/logout");
       return response.data;
     },
 

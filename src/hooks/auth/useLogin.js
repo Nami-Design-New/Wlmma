@@ -37,7 +37,7 @@ export default function useLogin() {
       formData.append("password", data.password);
 
       const response = await axiosInstance.post(
-        "/api/admin/auth/login",
+        "/admin/auth/login",
         formData
       );
       return response.data;

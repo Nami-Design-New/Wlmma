@@ -1,23 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function useGetUsers(type) {
+export default function useGetTools() {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["users", type],
-    queryFn: () => getUsers(type),
+    queryKey: ["tools"],
+    queryFn: () => getTools(),
   });
   return { isLoading, data, error };
 }
 
-const getUsers = async (type) => {
+const getTools = async () => {
   try {
-    const res = await axiosInstance.get(`/dashboard/users/${type}`);
+    const res = await axiosInstance.get("/dashboard/commercial-tools");
 
     if (res.status === 200) {
       return res.data.data;
     }
   } catch (error) {
-    console.error("Error fetching faqs:", error.message);
+    console.error("Error fetching settings:", error.message);
     throw error;
   }
 };

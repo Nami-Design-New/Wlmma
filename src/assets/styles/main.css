@@ -196,6 +196,23 @@ button {
   color: var(--dark-color) !important;
 }
 
+.tableLoader {
+  min-height: 548px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.tableLoader .loader--style8 {
+  width: 40px;
+  height: 40px;
+}
+.tableLoader svg path,
+.tableLoader svg rect {
+  fill: var(--main-color);
+  stroke: var(--main-color);
+}
+
 body {
   position: relative;
   overflow-x: hidden;

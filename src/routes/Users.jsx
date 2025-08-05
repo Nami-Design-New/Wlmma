@@ -1,5 +1,6 @@
 import DataTable from "../components/dashboard/DataTabel";
 import useGetUsers from "../hooks/users/useGetUsers";
+import DataLoader from "../ui/DataLoader";
 
 export default function Users() {
   const { data: users, isLoading } = useGetUsers(1);
@@ -40,7 +41,11 @@ export default function Users() {
       </div>
 
       <div className="tab_wrapper">
-        {!isLoading && <DataTable data={users} columns={cols} />}
+        {isLoading ? (
+          <DataLoader />
+        ) : (
+          <DataTable data={users} columns={cols} />
+        )}
       </div>
     </section>
   );

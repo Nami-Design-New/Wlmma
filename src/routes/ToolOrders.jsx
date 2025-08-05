@@ -1,64 +1,72 @@
+import { useEffect } from "react";
+import { Fancybox } from "@fancyapps/ui";
 import DataTable from "../components/dashboard/DataTabel";
+import useGetTools from "../hooks/settings/useGetTools";
+import DataLoader from "../ui/DataLoader";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export default function ToolOrders() {
+  const { data: tools, isLoading } = useGetTools();
+
+  useEffect(() => {
+    Fancybox.bind("[data-fancybox]", {});
+  }, []);
+
   const cols = [
     {
       header: "ID",
       accessorKey: "id",
     },
     {
-      header: "Status",
-      accessorKey: "status",
+      header: "Image",
+      accessorKey: "image",
+      cell: ({ row }) => {
+        const images = row.original.tool_images || [];
+        const groupName = `gallery-${row.original.id}`;
+
+        return (
+          <>
+            {images.length > 0 && (
+              <a href={images[0].image_path} data-fancybox={groupName}>
+                <img
+                  src={images[0].image_path}
+                  alt={`tool-${row.original.id}`}
+                  style={{
+                    width: "100px",
+                    height: "80px",
+                    objectFit: "cover",
+                    borderRadius: "4px",
+                  }}
+                />
+              </a>
+            )}
+
+            {images.slice(1).map((img, idx) => (
+              <a
+                key={idx}
+                href={img.image_path}
+                data-fancybox={groupName}
+                style={{ display: "none" }}
+              >
+                Hidden Image
+              </a>
+            ))}
+          </>
+        );
+      },
     },
+
     {
-      header: "Provider",
-      accessorKey: "provider",
-    },
-    {
-      header: "User",
-      accessorKey: "user",
-    },
-    {
-      header: "booking date",
-      accessorKey: "booking_date",
+      header: "Name",
+      accessorKey: "name_en",
     },
     {
       header: "Price",
       accessorKey: "price",
     },
-  ];
-  const data = [
     {
-      id: 1,
-      status: "pending",
-      provider: "John Doe",
-      user: "John Doe",
-      booking_date: "2022-01-01",
-      price: "1000",
-    },
-    {
-      id: 1,
-      status: "pending",
-      provider: "John Doe",
-      user: "John Doe",
-      booking_date: "2022-01-01",
-      price: "1000",
-    },
-    {
-      id: 1,
-      status: "pending",
-      provider: "John Doe",
-      user: "John Doe",
-      booking_date: "2022-01-01",
-      price: "1000",
-    },
-    {
-      id: 1,
-      status: "pending",
-      provider: "John Doe",
-      user: "John Doe",
-      booking_date: "2022-01-01",
-      price: "1000",
+      header: "Owner",
+      accessorKey: "user.name",
     },
   ];
 
@@ -70,7 +78,7 @@ export default function ToolOrders() {
       </div>
 
       <div className="tab_wrapper">
-        <DataTable data={data} columns={cols} />
+        {isLoading ? <DataLoader /> : <DataTable data={tools} columns={cols} />}
       </div>
     </section>
   );

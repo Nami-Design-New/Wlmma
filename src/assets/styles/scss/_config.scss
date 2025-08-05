@@ -215,3 +215,18 @@ button {
 .offcanvas .nav a {
   color: var(--dark-color) !important;
 }
+
+.tableLoader {
+  min-height: 548px;
+  @include centerFlex();
+  flex-direction: column;
+  .loader--style8 {
+    width: 40px;
+    height: 40px;
+  }
+  svg path,
+  svg rect {
+    fill: var(--main-color);
+    stroke: var(--main-color);
+  }
+}
