@@ -4,7 +4,14 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 
-export default function DataTable({ data, columns, page, total, setPage }) {
+export default function DataTable({
+  data,
+  columns,
+  page,
+  total,
+  setPage,
+  hasPagination = true,
+}) {
   const table = useReactTable({
     data: data || [],
     columns,
@@ -80,65 +87,67 @@ export default function DataTable({ data, columns, page, total, setPage }) {
         </tbody>
       </table>
 
-      <div className="pagination">
-        <div className="pagination_controls">
-          <button
-            onClick={() => setPage(1)}
-            disabled={page === 1}
-            aria-label="First page"
-          >
-            <i className="fa-light fa-angle-double-left"></i>
-          </button>
+      {hasPagination && (
+        <div className="pagination">
+          <div className="pagination_controls">
+            <button
+              onClick={() => setPage(1)}
+              disabled={page === 1}
+              aria-label="First page"
+            >
+              <i className="fa-light fa-angle-double-left"></i>
+            </button>
 
-          <button
-            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
-            disabled={page === 1}
-            aria-label="Previous page"
-          >
-            <i className="fa-light fa-angle-left"></i>
-          </button>
+            <button
+              onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+              disabled={page === 1}
+              aria-label="Previous page"
+            >
+              <i className="fa-light fa-angle-left"></i>
+            </button>
 
-          <div className="numbers">
-            {getPageNumbers().map((p, index) =>
-              p === "..." ? (
-                <span key={`ellipsis-${index}`} className="ellipsis">
-                  ...
-                </span>
-              ) : (
-                <button
-                  key={p}
-                  onClick={() => setPage(p)}
-                  className={page === p ? "active" : ""}
-                  aria-label={`Page ${p}`}
-                  aria-current={page === p ? "page" : undefined}
-                >
-                  {p}
-                </button>
-              )
-            )}
+            <div className="numbers">
+              {getPageNumbers().map((p, index) =>
+                p === "..." ? (
+                  <span key={`ellipsis-${index}`} className="ellipsis">
+                    ...
+                  </span>
+                ) : (
+                  <button
+                    key={p}
+                    onClick={() => setPage(p)}
+                    className={page === p ? "active" : ""}
+                    aria-label={`Page ${p}`}
+                    aria-current={page === p ? "page" : undefined}
+                  >
+                    {p}
+                  </button>
+                )
+              )}
+            </div>
+
+            <button
+              onClick={() => setPage((prev) => Math.min(prev + 1, total))}
+              disabled={page === total}
+              aria-label="Next page"
+            >
+              <i className="fa-light fa-angle-right"></i>
+            </button>
+
+            <button
+              onClick={() => setPage(total)}
+              disabled={page === total}
+              aria-label="Last page"
+            >
+              <i className="fa-light fa-angle-double-right"></i>
+            </button>
           </div>
 
-          <button
-            onClick={() => setPage((prev) => Math.min(prev + 1, total))}
-            disabled={page === total}
-            aria-label="Next page"
-          >
-            <i className="fa-light fa-angle-right"></i>
-          </button>
-
-          <button
-            onClick={() => setPage(total)}
-            disabled={page === total}
-            aria-label="Last page"
-          >
-            <i className="fa-light fa-angle-double-right"></i>
-          </button>
+          <span>
+            Page {page} of {total}
+          </span>
         </div>
-
-        <span>
-          Page {page} of {total}
-        </span>
-      </div>
+      )}
     </div>
   );
 }

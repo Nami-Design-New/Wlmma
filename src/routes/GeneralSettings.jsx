@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Tab, Tabs } from "react-bootstrap";
 import SettingTab from "../components/dashboard/general-settings/SettingTab";
 import AppSlidersTab from "./../components/dashboard/general-settings/AppSlidersTab";
+import FaqsTab from "../components/dashboard/general-settings/FaqsTab";
 
 export default function GeneralSettings() {
   const [key, setKey] = useState("about-us");
@@ -29,6 +30,10 @@ export default function GeneralSettings() {
 
         <Tab eventKey="terms-conditions" title="Terms & Conditions">
           <SettingTab title="Terms & Conditions" type={3} />
+        </Tab>
+
+        <Tab eventKey="faqs" title="FAQs">
+          <FaqsTab />
         </Tab>
 
         <Tab eventKey="app-sliders" title="App Sliders">

@@ -1266,6 +1266,13 @@ body .pagination .pagination_controls button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+body .faq_answer {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  max-width: 400px;
+}
 body main {
   min-height: calc(100dvh - 300px);
 }/*# sourceMappingURL=main.css.map */

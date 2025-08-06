@@ -29,7 +29,7 @@ export default function TripTypes() {
       cell: ({ row }) => (
         <img
           src={row.original.image}
-          alt={`slider-${row.original.id}`}
+          alt=""
           style={{
             width: "100px",
             height: "80px",

@@ -1,20 +1,20 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
-export default function useGetUsers(type) {
+export default function useGetUsers(type, page = 1) {
   const { isLoading, data, error } = useQuery({
-    queryKey: ["users", type],
-    queryFn: () => getUsers(type),
+    queryKey: ["users", type, page],
+    queryFn: () => getUsers(type, page),
   });
-  return { isLoading, data, error };
+  return { isLoading, data: data?.data, total: data?.total, error };
 }
 
-const getUsers = async (type) => {
+const getUsers = async (type, page) => {
   try {
-    const res = await axiosInstance.get(`/dashboard/users/${type}`);
+    const res = await axiosInstance.get(`/dashboard/users/${type}?page=${page}`);
 
     if (res.status === 200) {
-      return res.data.data;
+      return res.data;
     }
   } catch (error) {
     console.error("Error fetching faqs:", error.message);
