@@ -4,9 +4,11 @@ import How from "../components/landing/How";
 import Experience from "../components/landing/Experience";
 import Testimonial from "../components/landing/Testimonial";
 import Download from "../components/landing/Download";
+import useGetLandingPage from "../hooks/settings/useGetLandingPage";
 
 export default function LandingPage() {
-  return (
+  const { data: landingContent, isLoading } = useGetLandingPage();
+  return isLoading ? null : (
     <>
       <Hero />
       <About />
