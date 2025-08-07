@@ -5,7 +5,7 @@ import DataLoader from "../ui/DataLoader";
 
 export default function Companies() {
   const [page, setPage] = useState(1);
-  const { data: users, total, isLoading } = useGetUsers(3, page);
+  const { data: users, total, isLoading } = useGetUsers(2, page);
   const cols = [
     {
       header: "ID",

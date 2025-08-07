@@ -1,6 +1,12 @@
+import { useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
+import useGetRequests from "../hooks/users/useGetRequests";
+import DataLoader from "../ui/DataLoader";
 
 export default function Requests() {
+  const [page, setPage] = useState(1);
+  const { data: requests, total, isLoading } = useGetRequests(page);  
+
   const cols = [
     {
       header: "ID",
@@ -8,23 +14,28 @@ export default function Requests() {
     },
     {
       header: "Name",
-      accessorKey: "name",
+      accessorKey: "provider.name",
     },
     {
       header: "Phone Number",
-      accessorKey: "phone_number",
+      accessorKey: "provider.phone_number",
     },
     {
       header: "Gender",
-      accessorKey: "gender",
+      accessorKey: "provider.gender",
     },
     {
       header: "Type",
-      accessorKey: "type",
+      accessorKey: "provider.user_type.type",
     },
-    {
+     {
       header: "Join Date",
-      accessorKey: "join_date",
+      accessorKey: "created_at",
+      cell: (info) => {
+        const dateString = info.getValue?.();
+        const date = new Date(dateString);
+        return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleString();
+      },
     },
     {
       header: "Actions",
@@ -42,65 +53,6 @@ export default function Requests() {
     },
   ];
 
-  const data = [
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Company",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Individual",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Company",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Company",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Individual",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Individual",
-      join_date: "2022-01-01",
-    },
-    {
-      id: 1,
-      name: "John Doe",
-      phone_number: "01027964469",
-      gender: "Male",
-      type: "Individual",
-      join_date: "2022-01-01",
-    },
-  ];
-
   return (
     <section className="form_ui">
       <div className="page_head">
@@ -109,7 +61,17 @@ export default function Requests() {
       </div>
 
       <div className="tab_wrapper">
-        <DataTable data={data} columns={cols} />
+        {isLoading ? (
+          <DataLoader />
+        ) : (
+          <DataTable
+            data={requests}
+            columns={cols}
+            total={Math.ceil(total / 8)}
+            page={page}
+            setPage={setPage}
+          />
+        )}
       </div>
     </section>
   );

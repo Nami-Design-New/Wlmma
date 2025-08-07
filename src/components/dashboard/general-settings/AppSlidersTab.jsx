@@ -2,7 +2,7 @@ import { useState } from "react";
 import DataTable from "../DataTabel";
 import AddSlideModal from "../../../ui/modals/AddSlideModal";
 import useGetAppSlider from "../../../hooks/settings/useGetAppSlider";
-import useDeleteSlider from "../../../hooks/settings/useDeleteSlider";
+import useDeleteSlider from "../../../hooks/actions/useDeleteSlider";
 import DataLoader from "../../../ui/DataLoader";
 import ConfirmDeleteModal from "../../../ui/modals/ConfirmDeleteModal";
 
