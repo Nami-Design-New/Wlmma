@@ -3,7 +3,7 @@ import DataTable from "../components/dashboard/DataTabel";
 import DataLoader from "../ui/DataLoader";
 import useGetTripTypes from "../hooks/settings/useGetTripTypes";
 import ConfirmDeleteModal from "../ui/modals/ConfirmDeleteModal";
-import useDeleteTrip from "../hooks/settings/useDeleteTrip";
+import useDeleteTrip from './../hooks/actions/useDeleteTrip';
 import AddTripType from "../ui/modals/AddTripType";
 
 export default function TripTypes() {
