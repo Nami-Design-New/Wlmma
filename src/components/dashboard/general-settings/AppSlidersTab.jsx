@@ -1,9 +1,23 @@
 import { useState } from "react";
 import DataTable from "../DataTabel";
 import AddSlideModal from "../../../ui/modals/AddSlideModal";
+import useGetAppSlider from "../../../hooks/settings/useGetAppSlider";
+import useDeleteSlider from "../../../hooks/settings/useDeleteSlider";
+import DataLoader from "../../../ui/DataLoader";
+import ConfirmDeleteModal from "../../../ui/modals/ConfirmDeleteModal";
 
 export default function AppSlidersTab() {
-  const [show, setShow] = useState(false);
+  const [page, setPage] = useState(1);
+  const [item, setItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const { data: sliders, total, isLoading } = useGetAppSlider(page);
+
+  const { deleteSlider, isDeleting } = useDeleteSlider(
+    item,
+    setShowDeleteModal
+  );
 
   const cols = [
     {
@@ -38,14 +52,21 @@ export default function AppSlidersTab() {
           <button
             className="action_btn"
             style={{ color: "#000" }}
-            onClick={() => handleEdit(row.original)}
+            onClick={() => {
+              setShowModal(true);
+              setItem(row.original);
+            }}
           >
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
+
           <button
             className="action_btn"
             style={{ color: "#ff0000" }}
-            onClick={() => handleDelete(row.original)}
+            onClick={() => {
+              setShowDeleteModal(true);
+              setItem(row.original);
+            }}
           >
             <i className="fa-regular fa-trash"></i>
           </button>
@@ -54,47 +75,41 @@ export default function AppSlidersTab() {
     },
   ];
 
-  const data = [
-    {
-      id: "1",
-      image: "/images/app-icon.svg",
-      link: "Slider 1",
-    },
-    {
-      id: "2",
-      image: "/images/app-icon.svg",
-      link: "Slider 2",
-    },
-    {
-      id: "3",
-      image: "/images/app-icon.svg",
-      link: "Slider 3",
-    },
-    {
-      id: "4",
-      image: "/images/app-icon.svg",
-      link: "Slider 4",
-    },
-  ];
-
-  const handleEdit = (slider) => {
-    console.log("Edit slider:", slider);
-    setShow(true);
-  };
-
-  const handleDelete = (slider) => {
-    console.log("Delete slider:", slider);
-  };
-
   return (
     <div className="tab_wrapper">
       <div className="d-flex justify-content-between align-items-center">
         <h5 className="mb-0">App Sliders</h5>
-        <button className="add_btn" onClick={() => setShow(true)}> Add Slide</button>
+        <button className="add_btn" onClick={() => setShowModal(true)}>
+          Add Slide
+        </button>
       </div>
-      <DataTable columns={cols} data={data} />
 
-      <AddSlideModal showModal={show} setShowModal={setShow} />
+      {isLoading ? (
+        <DataLoader />
+      ) : (
+        <DataTable
+          data={sliders}
+          columns={cols}
+          total={Math.ceil(total / 8)}
+          page={page}
+          setPage={setPage}
+        />
+      )}
+
+      <AddSlideModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        item={item}
+        setItem={setItem}
+      />
+
+      <ConfirmDeleteModal
+        show={showDeleteModal}
+        onConfirm={() => deleteSlider()}
+        loading={isDeleting}
+        closeDeleteModal={() => setShowDeleteModal(false)}
+        text={"Are you sure you want to delete this slide?"}
+      />
     </div>
   );
 }
