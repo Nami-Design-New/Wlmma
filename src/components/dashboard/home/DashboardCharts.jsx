@@ -1,6 +1,9 @@
 import Chart from "react-apexcharts";
+import useGetStatistics from "../../../hooks/settings/useGetStatistics";
 
 export default function DashboardCharts() {
+  const { data: statistics } = useGetStatistics();
+
   const months = [
     "Jan",
     "Feb",
@@ -51,14 +54,11 @@ export default function DashboardCharts() {
     series: [
       {
         name: "All Users",
-        data: [
-          2000, 2100, 2300, 2450, 2600, 2750, 2847, 2900, 3000, 3100, 3200,
-          3300,
-        ],
+        data: statistics?.usersGrowthTrend,
       },
       {
         name: "Service Providers",
-        data: [150, 180, 200, 220, 230, 240, 253, 260, 270, 280, 290, 300],
+        data: statistics?.providersGrowthTrend,
       },
     ],
     options: {
@@ -72,7 +72,7 @@ export default function DashboardCharts() {
     series: [
       {
         name: "Bookings",
-        data: [44, 55, 57, 56, 61, 58, 63, 62, 66, 69, 72, 75],
+        data: statistics.monthlyReservations,
       },
     ],
     options: {
@@ -90,7 +90,7 @@ export default function DashboardCharts() {
     series: [
       {
         name: "Tool Orders",
-        data: [23, 33, 45, 32, 67, 78, 88, 55, 42, 90, 75, 59],
+        data: statistics?.monthlyToolOrders,
       },
     ],
     options: {

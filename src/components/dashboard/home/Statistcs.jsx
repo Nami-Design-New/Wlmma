@@ -1,34 +1,43 @@
 import CountUp from "react-countup";
+import useGetStatistics from "../../../hooks/settings/useGetStatistics";
 
 export default function Statistics() {
+  const { data: statistics } = useGetStatistics();
+
+  const percentPointer = (percent) => {
+    const isNegative = percent.split("")[0] === "-";
+
+    return isNegative ? "/icons/down.svg" : "/icons/up.svg";
+  };
+
   const data = [
     {
       title: "All Users",
       icon: "fa-users",
-      value: 2847,
-      pointer: "/icons/up.svg",
-      percent: "+20%",
+      value: statistics?.allUsers,
+      pointer: percentPointer(statistics?.allUsersChangePercent),
+      percent: statistics?.allUsersChangePercent,
     },
     {
       title: "Service Providers",
       icon: "fa-buildings",
-      value: 253,
-      pointer: "/icons/down.svg",
-      percent: "-10%",
+      value: statistics?.providers,
+      pointer: percentPointer(statistics?.providersChangePercent),
+      percent: statistics?.providersChangePercent,
     },
     {
       title: "Reservations This Month",
       icon: "fa-calendar",
-      value: 123,
-      pointer: "/icons/up.svg",
-      percent: "+20%",
+      value: statistics?.reservationsThisMonth,
+      pointer: percentPointer(statistics?.reservationsChangePercent),
+      percent: statistics?.reservationsChangePercent,
     },
     {
       title: "Tools Orders",
       icon: "fa-box",
-      value: 98,
-      pointer: "/icons/down.svg",
-      percent: "-10%",
+      value: statistics?.toolsOrders,
+      pointer: percentPointer(statistics?.toolsOrdersChangePercent),
+      percent: statistics?.toolsOrdersChangePercent,
     },
   ];
 
