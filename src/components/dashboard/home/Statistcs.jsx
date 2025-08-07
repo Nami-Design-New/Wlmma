@@ -2,11 +2,10 @@ import CountUp from "react-countup";
 import useGetStatistics from "../../../hooks/settings/useGetStatistics";
 
 export default function Statistics() {
-  const { data: statistics } = useGetStatistics();
+  const { data: statistics, isLoading } = useGetStatistics();
 
   const percentPointer = (percent) => {
-    const isNegative = percent.split("")[0] === "-";
-
+    const isNegative = percent?.split("")?.[0] === "-";
     return isNegative ? "/icons/down.svg" : "/icons/up.svg";
   };
 
@@ -41,7 +40,7 @@ export default function Statistics() {
     },
   ];
 
-  return (
+  return isLoading ? null : (
     <div className="statistics">
       {data.map(({ title, icon, value, pointer, percent }) => (
         <div className="static_card" key={title}>

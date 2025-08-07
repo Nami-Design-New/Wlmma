@@ -72,7 +72,7 @@ export default function DashboardCharts() {
     series: [
       {
         name: "Bookings",
-        data: statistics.monthlyReservations,
+        data: statistics?.monthlyReservations,
       },
     ],
     options: {
