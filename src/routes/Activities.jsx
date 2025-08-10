@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
 import useGetActivities from "../hooks/settings/useGetActivities";
 import DataLoader from "../ui/DataLoader";
@@ -6,6 +6,12 @@ import DataLoader from "../ui/DataLoader";
 export default function Activities() {
   const [page, setPage] = useState(1);
   const { data: activities, total, isLoading } = useGetActivities(page);
+
+  useEffect(() => {
+    import("@fancyapps/ui").then(({ Fancybox }) => {
+      Fancybox.bind("[data-fancybox]", {});
+    });
+  }, []);
 
   const cols = [
     {

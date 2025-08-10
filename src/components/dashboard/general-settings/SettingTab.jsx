@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { toast } from "sonner";
 import JoditEditor from "jodit-react";
 import SubmitButton from "../../../ui/forms/SubmitButton";
@@ -7,7 +7,8 @@ import axiosInstance from "../../../utils/axiosInstance";
 import DataLoader from "../../../ui/DataLoader";
 
 export default function SettingTab({ title, type }) {
-  const [content, setContent] = useState({});
+  const contentRef = useRef({ describtion_ar: "", describtion_en: "" });
+  const [initialLoaded, setInitialLoaded] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const { data: settings, isLoading } = useGetSettings(type);
 
@@ -18,13 +19,14 @@ export default function SettingTab({ title, type }) {
   };
 
   useEffect(() => {
-    if (settings) {
-      setContent({
-        describtion_ar: settings.describtion_ar,
-        describtion_en: settings.describtion_en,
-      });
+    if (settings && !initialLoaded) {
+      contentRef.current = {
+        describtion_ar: settings.describtion_ar || "",
+        describtion_en: settings.describtion_en || "",
+      };
+      setInitialLoaded(true); // trigger re-render once
     }
-  }, [settings]);
+  }, [settings, initialLoaded]);
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -33,15 +35,14 @@ export default function SettingTab({ title, type }) {
     try {
       const res = await axiosInstance.put(
         `/dashboard/settings/update/${type}`,
-        content
+        contentRef.current
       );
 
       if (res.status === 200) {
         toast.success(res.data.message);
       }
     } catch (error) {
-      toast.error(error.response.data.message);
-      throw error;
+      toast.error(error.response?.data?.message || "Error saving data");
     } finally {
       setIsSaving(false);
     }
@@ -52,29 +53,25 @@ export default function SettingTab({ title, type }) {
       <div className="input-field mb-3">
         <h6>{title}</h6>
 
-        {isLoading ? (
+        {isLoading || !initialLoaded ? (
           <DataLoader />
         ) : (
           <>
             <div className="d-flex flex-column gap-2 mb-3">
-              <label>Description ( Arabic )</label>
+              <label>Description (Arabic)</label>
               <JoditEditor
                 config={editorConfig}
-                value={content.describtion_ar}
-                onChange={(value) =>
-                  setContent({ ...content, describtion_ar: value })
-                }
+                value={contentRef.current.describtion_ar}
+                onBlur={(value) => (contentRef.current.describtion_ar = value)}
               />
             </div>
 
             <div className="d-flex flex-column gap-2">
-              <label>Description ( English )</label>
+              <label>Description (English)</label>
               <JoditEditor
                 config={editorConfig}
-                value={content.describtion_en}
-                onChange={(value) =>
-                  setContent({ ...content, describtion_en: value })
-                }
+                value={contentRef.current.describtion_en}
+                onBlur={(value) => (contentRef.current.describtion_en = value)}
               />
             </div>
           </>
