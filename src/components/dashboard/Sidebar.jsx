@@ -66,12 +66,12 @@ export default function Sidebar() {
 
         <NavLink to="activities">
           <img src="/icons/activities.svg" alt="bookings" />
-          <span>Activities</span>
+          <span>Trips</span>
         </NavLink>
 
         <NavLink to="tools">
           <img src="/icons/orders.svg" alt="orders" />
-          <span>Commercial Tool</span>
+          <span>Tools</span>
         </NavLink>
 
         <NavLink to="support">
