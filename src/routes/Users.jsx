@@ -1,11 +1,11 @@
 import { useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
-import useGetUsers from "../hooks/users/useGetUsers";
+import useGetAllUsers from "../hooks/users/useGetAllUsers";
 import DataLoader from "../ui/DataLoader";
 
 export default function Users() {
   const [page, setPage] = useState(1);
-  const { data: users, total, isLoading } = useGetUsers(1, page);
+  const { data: users, total, isLoading } = useGetAllUsers(page);
 
   const cols = [
     {
