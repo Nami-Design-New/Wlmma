@@ -2,11 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../../utils/axiosInstance";
 
 export default function useGetRooms() {
-    const { isLoading, data, error } = useQuery({
+    const { isLoading, data, error, refetch } = useQuery({
         queryKey: ["rooms"],
         queryFn: () => getRooms(),
     });
-    return { isLoading, data, error };
+    return { isLoading, data, error, refetch};
 }
 
 const getRooms = async () => {

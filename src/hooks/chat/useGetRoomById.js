@@ -5,13 +5,14 @@ import { useSearchParams } from "react-router";
 export default function useGetRoomById() {
     const [searchParams] = useSearchParams();
     const roomId = searchParams.get("room_id");
-    const { isLoading, data, error } = useQuery({
+    const { isLoading, data, error, refetch } = useQuery({
         queryKey: ["room", roomId],
         queryFn: () => getRoomById(roomId),
         enabled: !!roomId,
 
     });
-    return { isLoading, data, error };
+    return { isLoading, data, error, refetch };
+
 }
 
 const getRoomById = async (room_id) => {
