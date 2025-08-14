@@ -1,71 +1,42 @@
+import { useSearchParams } from "react-router";
+import useGetRooms from "../../../hooks/chat/useGetRooms";
 import { useState } from "react";
 
 export default function SideBar() {
-  const [chats] = useState([
-    {
-      id: 1,
-      name: "John Doe",
-      user_image: "https://randomuser.me/api/portraits/men/1.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-    {
-      id: 2,
-      name: "Jane Doe",
-      user_image: "https://randomuser.me/api/portraits/men/2.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-    {
-      id: 3,
-      name: "Jane Doe",
-      user_image: "https://randomuser.me/api/portraits/men/3.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-    {
-      id: 4,
-      name: "Jane Doe",
-      user_image: "https://randomuser.me/api/portraits/men/4.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-    {
-      id: 5,
-      name: "Jane Doe",
-      user_image: "https://randomuser.me/api/portraits/men/5.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-    {
-      id: 6,
-      name: "Jane Doe",
-      user_image: "https://randomuser.me/api/portraits/men/6.jpg",
-      lastMessage: "Hello, how are you?",
-      time: "10:00 AM",
-    },
-  ]);
+  const { data: rooms } = useGetRooms();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [selectedRoom, setSelectedRoom] = useState(searchParams.get("room_id"));
+
+  const handleSelectRoom = (room_id) => {
+    setSelectedRoom(room_id);
+    setSearchParams({ room_id });
+  }
 
   return (
     <aside className="chat_sidebar">
       <div className="cards">
-        {chats?.map((chat) => (
-          <div className="chat_card">
+        {rooms?.map((chat) => (
+          <div
+            className={`chat_card ${selectedRoom === chat?.room_id ? "active" : ""}`}
+            key={chat?.room_id}
+            onClick={() => handleSelectRoom(chat?.room_id)}
+          >
             <div className="img">
               <img
-                src={chat?.user_image}
-                alt={chat?.name}
+                src={chat?.user?.image || "/icons/user_default.png"}
+                alt={chat?.user?.name}
                 loading="lazy"
                 onError={(e) =>
-                  (e.target.src = "/images/icons/user_default.png")
+                  (e.target.src = "/icons/user_default.png")
                 }
               />
             </div>
-            <span className="name_span">{chat?.name}</span>
             <div className="content">
-              <h6>{chat?.name}</h6>
-              <p>{chat?.lastMessage}</p>
-              <span className="time">{chat?.time}</span>
+              <h6>{chat?.user?.name}</h6>
+              <p>{chat?.latest_message?.message}</p>
+              <span className="time">
+                {chat?.latest_message?.time}
+              </span>
             </div>
           </div>
         ))}
