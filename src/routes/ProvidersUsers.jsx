@@ -2,9 +2,12 @@ import { useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
 import useGetUsers from "../hooks/users/useGetUsers";
 import DataLoader from "../ui/DataLoader";
+import UserModal from "../ui/modals/UserModal";
 
 export default function ProvidersUsers() {
   const [page, setPage] = useState(1);
+  const [item, setItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const { data: users, total, isLoading } = useGetUsers(3, page);
   const cols = [
     {
@@ -32,6 +35,24 @@ export default function ProvidersUsers() {
         return isNaN(date.getTime()) ? "Invalid Date" : date.toLocaleString();
       },
     },
+    {
+      header: "Actions",
+      accessorKey: "actions",
+      cell: ({ row }) => (
+        <div className="d-flex gap-2">
+          <button
+            className="action_btn"
+            style={{ color: "#00adff" }}
+            onClick={() => {
+              setShowModal(true);
+              setItem(row.original);
+            }}
+          >
+            <i className="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -54,6 +75,11 @@ export default function ProvidersUsers() {
           />
         )}
       </div>
+      <UserModal
+        showModal={showModal}
+        item={item}
+        handleClose={() => setShowModal(false)}
+      />
     </section>
   );
 }

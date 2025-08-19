@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
 import useGetActivities from "../hooks/settings/useGetActivities";
 import DataLoader from "../ui/DataLoader";
+import ActivityView from "../ui/modals/ActivityView";
 
 export default function Activities() {
   const [page, setPage] = useState(1);
+  const [item, setItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const { data: activities, total, isLoading } = useGetActivities(page);
 
   useEffect(() => {
@@ -80,6 +83,24 @@ export default function Activities() {
       header: "Rate",
       accessorKey: "average_rating",
     },
+    {
+      header: "Actions",
+      accessorKey: "actions",
+      cell: ({ row }) => (
+        <div className="d-flex gap-2">
+          <button
+            className="action_btn"
+            style={{ color: "#00adff" }}
+            onClick={() => {
+              setShowModal(true);
+              setItem(row.original);
+            }}
+          >
+            <i className="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -102,6 +123,12 @@ export default function Activities() {
           />
         )}
       </div>
+
+      <ActivityView
+        showModal={showModal}
+        item={item}
+        handleClose={() => setShowModal(false)}
+      />
     </section>
   );
 }

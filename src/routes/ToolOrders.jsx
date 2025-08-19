@@ -3,10 +3,13 @@ import { Fancybox } from "@fancyapps/ui";
 import DataTable from "../components/dashboard/DataTabel";
 import useGetTools from "../hooks/settings/useGetTools";
 import DataLoader from "../ui/DataLoader";
+import ToolView from "../ui/modals/ToolView";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export default function ToolOrders() {
   const [page, setPage] = useState(1);
+  const [item, setItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const { data: tools, total, isLoading } = useGetTools(page);
 
   useEffect(() => {
@@ -68,6 +71,24 @@ export default function ToolOrders() {
       header: "Provider",
       accessorKey: "user.name",
     },
+    {
+      header: "Actions",
+      accessorKey: "actions",
+      cell: ({ row }) => (
+        <div className="d-flex gap-2">
+          <button
+            className="action_btn"
+            style={{ color: "#00adff" }}
+            onClick={() => {
+              setShowModal(true);
+              setItem(row.original);
+            }}
+          >
+            <i className="fa-regular fa-eye"></i>
+          </button>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -90,6 +111,11 @@ export default function ToolOrders() {
           />
         )}
       </div>
+      <ToolView
+        showModal={showModal}
+        item={item}
+        handleClose={() => setShowModal(false)}
+      />
     </section>
   );
 }
