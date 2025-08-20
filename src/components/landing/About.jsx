@@ -64,7 +64,7 @@ export default function About() {
       </div>
 
       <div className="about_img_m about-shape">
-        <img src="/public/images/user.png" alt="user" />
+        <img src="/images/user.png" alt="user" />
       </div>
     </section>
   );
