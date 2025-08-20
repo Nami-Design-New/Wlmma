@@ -40,7 +40,7 @@ export default function About() {
               key={index}
               data-aos="fade-up"
             >
-              <div className="d-flex gap-5">
+              <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-5 ">
                 <div className="section-icon">
                   <img
                     src={item.icon}
