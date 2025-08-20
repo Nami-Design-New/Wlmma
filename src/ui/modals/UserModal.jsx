@@ -8,6 +8,20 @@ import useGetUserDetails from "../../hooks/users/useGetUserDetails";
 export default function UserModal({ showModal, handleClose, item }) {
   const { data } = useGetUserDetails(item?.id);
 
+  const STATUS_MAP = {
+    1: { label: "Waiting", className: "status-1" },
+    2: { label: "Rejected", className: "status-2" },
+    3: { label: "Accepted", className: "status-3" },
+    4: { label: "Cancelled by User", className: "status-4" },
+    5: { label: "Paid", className: "status-5" },
+    6: { label: "Cancelled by Provider", className: "status-6" },
+    7: { label: "Booking Completed", className: "status-7" },
+    8: { label: "In Progress", className: "status-8" },
+    9: { label: "On Hold", className: "status-9" },
+    10: { label: "Refunded", className: "status-10" },
+  };
+
+
   const user = data || {};
   const bookings = user?.bookings || [];
 
@@ -86,26 +100,26 @@ export default function UserModal({ showModal, handleClose, item }) {
                         <div className="booking-header">
                           <h6>Booking #{booking.id}</h6>
                           <span
-                            className={`status status-${booking.status_id}`}
+                            className={`status ${STATUS_MAP[booking.status_id]?.className}`}
                           >
-                            Status: {booking.status_id}
+                            {STATUS_MAP[booking.status_id]?.label}
                           </span>
                         </div>
                         <div className="booking-body">
                           <p>
-                            <strong>Activity ID:</strong> {booking.activity_id}
+                            Activity ID: <strong>{booking.activity_id}</strong>
                           </p>
                           <p>
-                            <strong>Date:</strong> {booking.date}
+                            Date: <strong>{booking.date}</strong>
                           </p>
                           <p>
-                            <strong>Time:</strong> {booking.time || "N/A"}
+                            Time: <strong>{booking.time || "N/A"}</strong>
                           </p>
                           <p>
-                            <strong>Capacity:</strong> {booking.capacity}
+                            Capacity: <strong>{booking.capacity}</strong>
                           </p>
                           <p>
-                            <strong>Total Price:</strong> {booking.total_price}{" "}
+                            Total Price: <strong>{booking.total_price}</strong>{" "}
                             SAR
                           </p>
                         </div>

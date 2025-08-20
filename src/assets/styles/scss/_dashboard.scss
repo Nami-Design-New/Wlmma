@@ -666,6 +666,10 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease;
 
+    &:hover {
+      transform: translateY(-3px);
+    }
+
     .booking-header {
       display: flex;
       justify-content: space-between;
@@ -679,22 +683,39 @@
       }
 
       .status {
-        font-size: 13px;
-        padding: 3px 8px;
-        border-radius: 6px;
+        font-size: 12px;
+        padding: 4px 14px;
+        border-radius: 20px;
+        text-transform: capitalize;
 
         &-1 {
           background: #ffc107;
           color: #000;
-        } // Pending
+        } // Waiting (Amber)
         &-2 {
-          background: #28a745;
-          color: #fff;
-        } // Confirmed
-        &-3 {
           background: #dc3545;
           color: #fff;
-        } // Cancelled
+        } // Rejected (Red)
+        &-3 {
+          background: #28a745;
+          color: #fff;
+        } // Accepted (Green)
+        &-4 {
+          background: #6c757d;
+          color: #fff;
+        } // Cancelled by user (Gray)
+        &-5 {
+          background: #007bff;
+          color: #fff;
+        } // Paid (Blue)
+        &-6 {
+          background: #ff5722;
+          color: #fff;
+        } // Cancelled by provider (Orange)
+        &-7 {
+          background: #20c997;
+          color: #fff;
+        } // Booking Completed (Teal)
       }
     }
 

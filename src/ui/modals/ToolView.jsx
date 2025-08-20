@@ -36,15 +36,27 @@ export default function ToolView({ showModal, handleClose, item }) {
                 navigation
                 pagination={{ clickable: true }}
               >
-                {data?.tool_image?.map((image, index) => (
-                  <SwiperSlide key={index}>
+                {data?.tool_image?.length > 0 ? (
+                  <>
+                    {data?.tool_image?.map((image, index) => (
+                      <SwiperSlide key={index}>
+                        <img
+                          src={image.image_path}
+                          alt={`Tool image ${index + 1}`}
+                          className="img-fluid"
+                        />
+                      </SwiperSlide>
+                    ))}
+                  </>
+                ) : (
+                  <SwiperSlide>
                     <img
-                      src={image.image_path}
-                      alt={`Tool image ${index + 1}`}
+                      src="/images/headerLogo.svg"
+                      alt={`Tool image`}
                       className="img-fluid"
                     />
                   </SwiperSlide>
-                ))}
+                )}
               </Swiper>
 
               <div className="text mt-3">

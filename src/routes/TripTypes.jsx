@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DataTable from "../components/dashboard/DataTabel";
 import DataLoader from "../ui/DataLoader";
 import useGetTripTypes from "../hooks/settings/useGetTripTypes";
 import ConfirmDeleteModal from "../ui/modals/ConfirmDeleteModal";
-import useDeleteTrip from './../hooks/actions/useDeleteTrip';
+import useDeleteTrip from "./../hooks/actions/useDeleteTrip";
 import AddTripType from "../ui/modals/AddTripType";
 
 export default function TripTypes() {
@@ -18,6 +18,12 @@ export default function TripTypes() {
     setShowDeleteModal
   );
 
+  useEffect(() => {
+    import("@fancyapps/ui").then(({ Fancybox }) => {
+      Fancybox.bind("[data-fancybox]", {});
+    });
+  }, []);
+
   const cols = [
     {
       header: "ID",
@@ -27,16 +33,18 @@ export default function TripTypes() {
       header: "Image",
       accessorKey: "image",
       cell: ({ row }) => (
-        <img
-          src={row.original.image}
-          alt=""
-          style={{
-            width: "100px",
-            height: "80px",
-            objectFit: "cover",
-            borderRadius: "4px",
-          }}
-        />
+        <a href={row.original.image} data-fancybox={row.original.id}>
+          <img
+            src={row.original.image}
+            alt=""
+            style={{
+              width: "100px",
+              height: "80px",
+              objectFit: "cover",
+              borderRadius: "4px",
+            }}
+          />
+        </a>
       ),
     },
     {
@@ -57,7 +65,7 @@ export default function TripTypes() {
           >
             <i className="fa-regular fa-pen-to-square"></i>
           </button>
-          
+
           <button
             className="action_btn"
             style={{ color: "#ff0000" }}

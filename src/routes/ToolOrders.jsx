@@ -45,6 +45,19 @@ export default function ToolOrders() {
               </a>
             )}
 
+            {images.length == 0 && (
+              <img
+                src="/images/headerLogo.svg"
+                alt=""
+                style={{
+                  width: "100px",
+                  height: "80px",
+                  objectFit: "contain",
+                  borderRadius: "4px",
+                }}
+              />
+            )}
+
             {images.slice(1).map((img, idx) => (
               <a
                 key={idx}

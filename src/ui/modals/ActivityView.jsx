@@ -76,7 +76,7 @@ export default function ActivityView({ showModal, handleClose, item }) {
 
                   <div className="capacity">
                     <div className="icon">
-                      <img src="/public/icons/calender.svg" alt="capacity" />
+                      <img src="/icons/calender.svg" alt="capacity" />
                       <h6>Start Date</h6>
                     </div>
                     <h5>

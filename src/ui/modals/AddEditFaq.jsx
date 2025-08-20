@@ -55,12 +55,11 @@ export default function AddEditFaq({ showModal, setShowModal, item, setItem }) {
       formData.append("describtion_ar", data.describtion_ar);
       formData.append("describtion_en", data.describtion_en);
 
-      const method = item?.id ? "put" : "post";
       const url = item?.id
         ? `/dashboard/faqs/update/${item.id}`
         : `/dashboard/faqs/store`;
 
-      const response = await axiosInstance[method](url, formData, {
+      const response = await axiosInstance.post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

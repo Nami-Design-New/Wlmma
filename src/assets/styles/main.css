@@ -1438,6 +1438,9 @@ body .user-modal .booking-card {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease;
 }
+body .user-modal .booking-card:hover {
+  transform: translateY(-3px);
+}
 body .user-modal .booking-card .booking-header {
   display: flex;
   justify-content: space-between;
@@ -1450,20 +1453,37 @@ body .user-modal .booking-card .booking-header h6 {
   font-weight: 600;
 }
 body .user-modal .booking-card .booking-header .status {
-  font-size: 13px;
-  padding: 3px 8px;
-  border-radius: 6px;
+  font-size: 12px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  text-transform: capitalize;
 }
 body .user-modal .booking-card .booking-header .status-1 {
   background: #ffc107;
   color: #000;
 }
 body .user-modal .booking-card .booking-header .status-2 {
-  background: #28a745;
+  background: #dc3545;
   color: #fff;
 }
 body .user-modal .booking-card .booking-header .status-3 {
-  background: #dc3545;
+  background: #28a745;
+  color: #fff;
+}
+body .user-modal .booking-card .booking-header .status-4 {
+  background: #6c757d;
+  color: #fff;
+}
+body .user-modal .booking-card .booking-header .status-5 {
+  background: #007bff;
+  color: #fff;
+}
+body .user-modal .booking-card .booking-header .status-6 {
+  background: #ff5722;
+  color: #fff;
+}
+body .user-modal .booking-card .booking-header .status-7 {
+  background: #20c997;
   color: #fff;
 }
 body .user-modal .booking-card .booking-body p {

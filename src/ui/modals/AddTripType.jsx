@@ -65,12 +65,11 @@ export default function AddTripType({
         formData.append("image", data.image);
       }
 
-      const method = item?.id ? "put" : "post";
       const url = item?.id
         ? `/dashboard/adventures/${item.id}`
         : `/dashboard/adventures/store`;
 
-      const response = await axiosInstance[method](url, formData, {
+      const response = await axiosInstance.post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
