@@ -67,12 +67,11 @@ export default function AddSlideModal({
         formData.append("image", data.image);
       }
 
-      const method = item?.id ? "put" : "post";
       const url = item?.id
         ? `/dashboard/sliders/${item.id}`
         : `/dashboard/sliders/store`;
 
-      const response = await axiosInstance[method](url, formData, {
+      const response = await axiosInstance.post(url, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
