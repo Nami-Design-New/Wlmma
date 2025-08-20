@@ -23,12 +23,23 @@ export default function About() {
   return (
     <section className="py-5 about_section" id="about">
       <div className="container">
-        <h1 className="h6 text-center text-yellow-color fw-bold" data-aos="fade-up">About</h1>
-        <h2 className="display-5 text-center fw-bold" data-aos="fade-up">Why choose us?</h2>
+        <h1
+          className="h6 text-center text-yellow-color fw-bold"
+          data-aos="fade-up"
+        >
+          About
+        </h1>
+        <h2 className="display-5 text-center fw-bold" data-aos="fade-up">
+          Why choose us?
+        </h2>
 
         <div className="row flex-column align-items-center pe-0 pe-lg-5 pt-5 me-0 me-lg-5 ">
           {aboutItems.map((item, index) => (
-            <div className="col-md-7 col-lg-6 mb-4" key={index} data-aos="fade-up">
+            <div
+              className="col-md-7 col-lg-6 mb-4"
+              key={index}
+              data-aos="fade-up"
+            >
               <div className="d-flex gap-5">
                 <div className="section-icon">
                   <img
@@ -50,6 +61,10 @@ export default function About() {
 
       <div className="about-shape" data-aos="fade-right">
         <img src="/images/aboutBackground.png" alt="about shape" />
+      </div>
+
+      <div className="about_img_m about-shape">
+        <img src="/public/images/user.png" alt="user" />
       </div>
     </section>
   );

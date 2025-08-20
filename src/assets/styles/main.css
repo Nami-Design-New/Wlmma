@@ -528,6 +528,10 @@ body .about-shape img {
     display: none;
   }
 }
+body .about-shape.about_img_m {
+  right: 16px;
+  left: initial;
+}
 body .how_section {
   position: relative;
 }

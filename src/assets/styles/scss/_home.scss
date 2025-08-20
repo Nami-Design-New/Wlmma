@@ -102,6 +102,11 @@
   @media (max-width: 769px) {
     display: none;
   }
+
+  &.about_img_m {
+    right: 16px;
+    left: initial;
+  }
 }
 
 .how_section {
