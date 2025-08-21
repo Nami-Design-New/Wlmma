@@ -73,7 +73,7 @@ export function Footer() {
             <div className="">
               <div className="footer-shape position-relative">
                 <img
-                  src="/images/footerBackground.png"
+                  src="/images/footerBackground.svg"
                   alt="footer background"
                 />
                 <div className="position-absolute footer-items d-flex gap-5">

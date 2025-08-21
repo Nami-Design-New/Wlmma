@@ -30,7 +30,7 @@ export default function Hero() {
         </Col>
       </Row>
       <div className="hero-shape">
-        <img src="/images/homeBackground.png" alt="hero shape" />
+        <img src="/images/homeBackground.svg" alt="hero shape" />
       </div>
     </section>
   );

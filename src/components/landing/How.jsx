@@ -52,7 +52,7 @@ export default function How() {
       </div>
 
       <div className="how-shape" data-aos="fade-left">
-        <img src="/images/howBackground.png" alt="how shape" />
+        <img src="/images/howBackground.svg" alt="how shape" />
       </div>
     </section>
   );

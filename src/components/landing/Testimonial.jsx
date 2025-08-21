@@ -26,7 +26,7 @@ export default function Testimonial() {
       </div>
 
       <div className="about-shape" data-aos="fade-right">
-        <img src="/images/aboutBackground.png" alt="Testimonial shape" />
+        <img src="/images/aboutBackground.svg" alt="Testimonial shape" />
       </div>
     </section>
   );

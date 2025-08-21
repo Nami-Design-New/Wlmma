@@ -60,7 +60,7 @@ export default function About() {
       </div>
 
       <div className="about-shape" data-aos="fade-right">
-        <img src="/images/aboutBackground.png" alt="about shape" />
+        <img src="/images/aboutBackground.svg" alt="about shape" />
       </div>
 
       <div className="about_img_m about-shape">
