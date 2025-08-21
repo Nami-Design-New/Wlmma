@@ -45,10 +45,10 @@ export default function Sidebar() {
                 <span className="circle"></span> Customers
               </NavLink>
               <NavLink to="providers">
-                <span className="circle"></span> ⁠⁠Individual Providers
+                <span className="circle"></span> Individual Providers
               </NavLink>
               <NavLink to="companies">
-                <span className="circle"></span> ⁠⁠Company Providers
+                <span className="circle"></span> Company Providers
               </NavLink>
             </Accordion.Body>
           </Accordion.Item>
