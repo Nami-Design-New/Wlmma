@@ -35,20 +35,20 @@ export default function Sidebar() {
             <Accordion.Header>
               <div>
                 <img src="/icons/clients.svg" alt="clients" />
-                <span>Clients</span>
+                <span>Users</span>
               </div>
               <i className="fa-regular fa-angle-right"></i>
             </Accordion.Header>
 
             <Accordion.Body>
               <NavLink to="users">
-                <span className="circle"></span> Users
+                <span className="circle"></span> Customers
               </NavLink>
               <NavLink to="providers">
-                <span className="circle"></span> Providers
+                <span className="circle"></span> ⁠⁠Individual Providers
               </NavLink>
               <NavLink to="companies">
-                <span className="circle"></span> Companies
+                <span className="circle"></span> ⁠⁠Company Providers
               </NavLink>
             </Accordion.Body>
           </Accordion.Item>
@@ -61,7 +61,7 @@ export default function Sidebar() {
 
         <NavLink to="trip-types">
           <img src="/icons/adventures.svg" alt="bookings" />
-          <span>Adventures (Trip Types)</span>
+          <span> Trip Types </span>
         </NavLink>
 
         <NavLink to="activities">
